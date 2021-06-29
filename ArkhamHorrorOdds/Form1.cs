@@ -15,6 +15,21 @@ namespace ArkhamHorrorOdds
         public Form1()
         {
             InitializeComponent();
+            cbCampaign.SelectedIndex = 0;
+            cbScenario.SelectedIndex = 0;
+            cbDifficulty.SelectedIndex = 1;
+        }
+
+        private void cbCampaign_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cbScenario.Items.Clear();
+            string[] scenarios = ScenarioNames.getList(cbCampaign.SelectedIndex);
+            foreach(string s in scenarios)
+            {
+                cbScenario.Items.Add(s);
+            }
+            if(cbScenario.Items.Count > 0)
+                cbScenario.SelectedIndex = 0;
         }
     }
 }
