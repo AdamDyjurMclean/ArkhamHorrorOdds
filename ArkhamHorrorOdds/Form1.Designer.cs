@@ -43,6 +43,7 @@ namespace ArkhamHorrorOdds
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
             this.lblStar = new System.Windows.Forms.Label();
             this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.btnDefault = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
@@ -216,11 +217,22 @@ namespace ArkhamHorrorOdds
             this.numericUpDown2.Size = new System.Drawing.Size(82, 28);
             this.numericUpDown2.TabIndex = 12;
             // 
+            // btnDefault
+            // 
+            this.btnDefault.Location = new System.Drawing.Point(512, 59);
+            this.btnDefault.Name = "btnDefault";
+            this.btnDefault.Size = new System.Drawing.Size(183, 30);
+            this.btnDefault.TabIndex = 14;
+            this.btnDefault.Text = "Set Campaign Default";
+            this.btnDefault.UseVisualStyleBackColor = true;
+            this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 703);
+            this.Controls.Add(this.btnDefault);
             this.Controls.Add(this.lblStar);
             this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.lblBonus);
@@ -263,6 +275,7 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.NumericUpDown numericUpDown1;
         private System.Windows.Forms.Label lblStar;
         private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.Button btnDefault;
     }
 }
 

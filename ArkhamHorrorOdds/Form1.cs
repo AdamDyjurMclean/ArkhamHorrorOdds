@@ -36,6 +36,27 @@ namespace ArkhamHorrorOdds
             if (cbScenario.Items.Count > 0)
                 cbScenario.SelectedIndex = 0;
         }
+        private void btnDefault_Click(object sender, EventArgs e)
+        {
+            int[] start = DefaultBags.bagStart(cbCampaign.SelectedIndex, cbDifficulty.SelectedIndex);
+            bag[1] = start[0];
+            bag[0] = start[1];
+            bag[-1] = start[2];
+            bag[-2] = start[3];
+            bag[-3] = start[4];
+            bag[-4] = start[5];
+            bag[-5] = start[6];
+            bag[-6] = start[7];
+            bag[-7] = start[8];
+            bag[-8] = start[9];
+            bag[11] = start[10];
+            bag[12] = start[11];
+            bag[13] = start[12];
+            bag[14] = start[13];
+            bag[15] = start[14];
+            bag[16] = start[15];
+            setText();
+        }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
