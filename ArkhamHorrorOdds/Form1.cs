@@ -28,6 +28,7 @@ namespace ArkhamHorrorOdds
             bag.Add(-4, 0);
             bag.Add(-5, 0);
             bag.Add(-6, 0);
+            bag.Add(-7, 0);
             bag.Add(-8, 0);
             bag.Add(11, 0); //Skull
             bag.Add(12, 0); //Cultest
@@ -41,18 +42,29 @@ namespace ArkhamHorrorOdds
         {
             cbScenario.Items.Clear();
             string[] scenarios = ScenarioNames.getList(cbCampaign.SelectedIndex);
-            foreach(string s in scenarios)
+            foreach (string s in scenarios)
             {
                 cbScenario.Items.Add(s);
             }
-            if(cbScenario.Items.Count > 0)
+            if (cbScenario.Items.Count > 0)
                 cbScenario.SelectedIndex = 0;
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
             int token = TokenNumber.convert(cbTokens.SelectedIndex);
-            bag[token]++;
+            if ((cbTokens.SelectedIndex == 7 || cbTokens.SelectedIndex == 8 || cbTokens.SelectedIndex == 9 ||
+                cbTokens.SelectedIndex == 14 || cbTokens.SelectedIndex == 15) && bag[token] < 1)
+                bag[token]++;
+            if ((cbTokens.SelectedIndex == 5 || cbTokens.SelectedIndex == 6) && bag[token] < 2)
+                bag[token]++;
+            if ((cbTokens.SelectedIndex == 0 || cbTokens.SelectedIndex == 4) && bag[token] < 3)
+                bag[token]++;
+            if ((cbTokens.SelectedIndex == 1 || cbTokens.SelectedIndex == 3 || cbTokens.SelectedIndex == 10 ||
+                cbTokens.SelectedIndex == 11 || cbTokens.SelectedIndex == 12 || cbTokens.SelectedIndex == 13) && bag[token] < 4)
+                bag[token]++;
+            if (cbTokens.SelectedIndex == 2 && bag[token] < 5)
+                bag[token]++;
             setText();
         }
 

@@ -116,6 +116,7 @@ namespace ArkhamHorrorOdds
             "-4",
             "-5",
             "-6",
+            "-7",
             "-8",
             "Skull",
             "Cultest",
@@ -125,7 +126,7 @@ namespace ArkhamHorrorOdds
             "Elder Sign"});
             this.cbTokens.Location = new System.Drawing.Point(448, 300);
             this.cbTokens.Name = "cbTokens";
-            this.cbTokens.Size = new System.Drawing.Size(100, 24);
+            this.cbTokens.Size = new System.Drawing.Size(120, 24);
             this.cbTokens.TabIndex = 5;
             this.cbTokens.TabStop = false;
             // 

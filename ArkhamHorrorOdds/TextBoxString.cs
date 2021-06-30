@@ -41,12 +41,10 @@ namespace ArkhamHorrorOdds
                 bagContains += $"{bag[-5]} \t -5 tokens\n";
             if (bag[-6] == 1)
                 bagContains += $"{bag[-6]} \t -6 token\n";
-            else if (bag[-6] > 1)
-                bagContains += $"{bag[-6]} \t -6 tokens\n";
+            if (bag[-7] == 1)
+                bagContains += $"{bag[-7]} \t -7 token\n";
             if (bag[-8] == 1)
                 bagContains += $"{bag[-8]} \t -8 token\n";
-            else if (bag[-8] > 1)
-                bagContains += $"{bag[-8]} \t -8 tokens\n";
             if (bag[11] == 1)
                 bagContains += $"{bag[11]} \t Skull token\n";
             else if (bag[11] > 1)
@@ -65,12 +63,8 @@ namespace ArkhamHorrorOdds
                 bagContains += $"{bag[14]} \t Elder Thing tokens\n";
             if (bag[15] == 1)
                 bagContains += $"{bag[15]} \t Auto Fail token\n";
-            else if (bag[15] > 1)
-                bagContains += $"{bag[15]} \t Auto Fail tokens\n";
             if (bag[16] == 1)
                 bagContains += $"{bag[16]} \t Elder Sign token\n";
-            else if (bag[16] > 1)
-                bagContains += $"{bag[16]} \t Elder Sign tokens\n";
             return bagContains;
         }
     }

@@ -29,21 +29,11 @@ namespace ArkhamHorrorOdds
                 case 7:
                     return -6;
                 case 8:
-                    return -8;
+                    return -7;
                 case 9:
-                    return 11;
-                case 10:
-                    return 12;
-                case 11:
-                    return 13;
-                case 12:
-                    return 14;
-                case 13:
-                    return 15;
-                case 14:
-                    return 16;
+                    return -8;
                 default:
-                    return 100;
+                    return input + 1;
             }
                 
         }
