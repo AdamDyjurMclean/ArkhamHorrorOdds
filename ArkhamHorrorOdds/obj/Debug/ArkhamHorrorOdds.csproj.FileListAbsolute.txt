@@ -2,9 +2,9 @@ C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\bin\De
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\bin\Debug\ArkhamHorrorOdds.exe
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\bin\Debug\ArkhamHorrorOdds.pdb
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.csproj.AssemblyReference.cache
-C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.Form1.resources
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.Properties.Resources.resources
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.csproj.GenerateResource.cache
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.exe
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.pdb
+C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.btnClear.resources

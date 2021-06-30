@@ -11,10 +11,10 @@ using System.Windows.Forms;
 
 namespace ArkhamHorrorOdds
 {
-    public partial class Form1 : Form
+    public partial class btnClear : Form
     {
         Dictionary<int, int> bag = new Dictionary<int, int>();
-        public Form1()
+        public btnClear()
         {
             InitializeComponent();
             cbCampaign.SelectedIndex = 0;
@@ -23,6 +23,7 @@ namespace ArkhamHorrorOdds
             cbTokens.SelectedIndex = 0;
             startBag();
             setText();
+            setExtras();
         }
 
         private void cbCampaign_SelectedIndexChanged(object sender, EventArgs e)
@@ -35,6 +36,14 @@ namespace ArkhamHorrorOdds
             }
             if (cbScenario.Items.Count > 0)
                 cbScenario.SelectedIndex = 0;
+        }
+        private void cbScenario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setExtras();
+        }
+        private void cbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            setExtras();
         }
         private void btnDefault_Click(object sender, EventArgs e)
         {
@@ -55,6 +64,26 @@ namespace ArkhamHorrorOdds
             bag[14] = start[13];
             bag[15] = start[14];
             bag[16] = start[15];
+            setText();
+        }
+        private void btnReset_Click(object sender, EventArgs e)
+        {
+            bag[1] = 0;
+            bag[0] = 0;
+            bag[-1] = 0;
+            bag[-2] = 0;
+            bag[-3] = 0;
+            bag[-4] = 0;
+            bag[-5] = 0;
+            bag[-6] = 0;
+            bag[-7] = 0;
+            bag[-8] = 0;
+            bag[11] = 0;
+            bag[12] = 0;
+            bag[13] = 0;
+            bag[14] = 0;
+            bag[15] = 0;
+            bag[16] = 0;
             setText();
         }
 
@@ -82,6 +111,14 @@ namespace ArkhamHorrorOdds
             if (bag[token] > 0)
                 bag[token]--;
             setText();
+        }
+
+        private void btnCalculate_Click(object sender, EventArgs e)
+        {
+            if (cbCampaign.SelectedIndex == 0)
+                lblresult.Text = OddsNotZ.scenarioCheck(bag, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value));
+            else
+                lblresult.Text = "Unfinished";
         }
 
         private void setText()
@@ -132,6 +169,19 @@ namespace ArkhamHorrorOdds
             writer.WriteLine(bag[15]);
             writer.WriteLine(bag[16]);
             writer.Close();
+        }
+        private void setExtras()
+        {
+            if (VarriableCheck.Check(cbCampaign.SelectedIndex, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex))
+            {
+                lblExtra1.Text = VarriableCheck.label(cbCampaign.SelectedIndex, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex);
+                cbExtra1.Visible = true;
+            }
+            else
+            {
+                lblExtra1.Text = "";
+                cbExtra1.Visible = false;
+            } 
         }
     }
 }
