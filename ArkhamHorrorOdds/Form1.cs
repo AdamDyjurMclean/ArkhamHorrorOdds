@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,22 +21,8 @@ namespace ArkhamHorrorOdds
             cbScenario.SelectedIndex = 0;
             cbDifficulty.SelectedIndex = 1;
             cbTokens.SelectedIndex = 0;
-            bag.Add(1, 0);
-            bag.Add(0, 0);
-            bag.Add(-1, 0);
-            bag.Add(-2, 0);
-            bag.Add(-3, 0);
-            bag.Add(-4, 0);
-            bag.Add(-5, 0);
-            bag.Add(-6, 0);
-            bag.Add(-7, 0);
-            bag.Add(-8, 0);
-            bag.Add(11, 0); //Skull
-            bag.Add(12, 0); //Cultest
-            bag.Add(13, 0); //Tablet
-            bag.Add(14, 0); //Elder Thing
-            bag.Add(15, 0); //Auto Fail
-            bag.Add(16, 0); //Elder Sign
+            startBag();
+            setText();
         }
 
         private void cbCampaign_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,6 +66,51 @@ namespace ArkhamHorrorOdds
         private void setText()
         {
             txtBag.Text = TextBoxString.textBox(bag);
+            setBag();
+        }
+
+        private void startBag()
+        {
+            StreamReader reader = new StreamReader("bag.txt");
+            bag.Add(1, Int32.Parse(reader.ReadLine()));
+            bag.Add(0, Int32.Parse(reader.ReadLine()));
+            bag.Add(-1, Int32.Parse(reader.ReadLine()));
+            bag.Add(-2, Int32.Parse(reader.ReadLine()));
+            bag.Add(-3, Int32.Parse(reader.ReadLine()));
+            bag.Add(-4, Int32.Parse(reader.ReadLine()));
+            bag.Add(-5, Int32.Parse(reader.ReadLine()));
+            bag.Add(-6, Int32.Parse(reader.ReadLine()));
+            bag.Add(-7, Int32.Parse(reader.ReadLine()));
+            bag.Add(-8, Int32.Parse(reader.ReadLine()));
+            bag.Add(11, Int32.Parse(reader.ReadLine())); //Skull
+            bag.Add(12, Int32.Parse(reader.ReadLine())); //Cultest
+            bag.Add(13, Int32.Parse(reader.ReadLine())); //Tablet
+            bag.Add(14, Int32.Parse(reader.ReadLine())); //Elder Thing
+            bag.Add(15, Int32.Parse(reader.ReadLine())); //Auto Fail
+            bag.Add(16, Int32.Parse(reader.ReadLine())); //Elder Sign
+            reader.Close();
+        }
+
+        private void setBag()
+        {
+            StreamWriter writer = new StreamWriter("bag.txt", false);
+            writer.WriteLine(bag[1]);
+            writer.WriteLine(bag[0]);
+            writer.WriteLine(bag[-1]);
+            writer.WriteLine(bag[-2]);
+            writer.WriteLine(bag[-3]);
+            writer.WriteLine(bag[-4]);
+            writer.WriteLine(bag[-5]);
+            writer.WriteLine(bag[-6]);
+            writer.WriteLine(bag[-7]);
+            writer.WriteLine(bag[-8]);
+            writer.WriteLine(bag[11]);
+            writer.WriteLine(bag[12]);
+            writer.WriteLine(bag[13]);
+            writer.WriteLine(bag[14]);
+            writer.WriteLine(bag[15]);
+            writer.WriteLine(bag[16]);
+            writer.Close();
         }
     }
 }
