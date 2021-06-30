@@ -68,6 +68,14 @@ namespace ArkhamHorrorOdds
             setText();
         }
 
+        private void btnRemove_Click(object sender, EventArgs e)
+        {
+            int token = TokenNumber.convert(cbTokens.SelectedIndex);
+            if (bag[token] > 0)
+                bag[token]--;
+            setText();
+        }
+
         private void setText()
         {
             txtBag.Text = TextBoxString.textBox(bag);

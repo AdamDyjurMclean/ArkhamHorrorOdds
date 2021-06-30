@@ -99,7 +99,7 @@ namespace ArkhamHorrorOdds
             this.txtBag.Location = new System.Drawing.Point(448, 95);
             this.txtBag.Name = "txtBag";
             this.txtBag.ReadOnly = true;
-            this.txtBag.Size = new System.Drawing.Size(295, 199);
+            this.txtBag.Size = new System.Drawing.Size(295, 280);
             this.txtBag.TabIndex = 4;
             this.txtBag.Text = "";
             // 
@@ -124,7 +124,7 @@ namespace ArkhamHorrorOdds
             "Elder Thing",
             "Auto Fail",
             "Elder Sign"});
-            this.cbTokens.Location = new System.Drawing.Point(448, 300);
+            this.cbTokens.Location = new System.Drawing.Point(448, 381);
             this.cbTokens.Name = "cbTokens";
             this.cbTokens.Size = new System.Drawing.Size(120, 24);
             this.cbTokens.TabIndex = 5;
@@ -132,7 +132,7 @@ namespace ArkhamHorrorOdds
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(587, 301);
+            this.btnAdd.Location = new System.Drawing.Point(587, 382);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 24);
             this.btnAdd.TabIndex = 6;
@@ -142,12 +142,13 @@ namespace ArkhamHorrorOdds
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(668, 301);
+            this.btnRemove.Location = new System.Drawing.Point(668, 382);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 24);
             this.btnRemove.TabIndex = 7;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
+            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
             // 
             // Form1
             // 
