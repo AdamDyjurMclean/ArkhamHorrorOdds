@@ -117,6 +117,7 @@ namespace ArkhamHorrorOdds
             // txtBag
             // 
             this.txtBag.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBag.Location = new System.Drawing.Point(448, 95);
             this.txtBag.Name = "txtBag";
             this.txtBag.ReadOnly = true;
@@ -144,9 +145,7 @@ namespace ArkhamHorrorOdds
             "Tablet",
             "Elder Thing",
             "Auto Fail",
-            "Elder Sign",
-            "Bless",
-            "Curse"});
+            "Elder Sign"});
             this.cbTokens.Location = new System.Drawing.Point(448, 381);
             this.cbTokens.Name = "cbTokens";
             this.cbTokens.Size = new System.Drawing.Size(120, 24);

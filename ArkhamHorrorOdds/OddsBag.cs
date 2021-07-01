@@ -33,7 +33,7 @@ namespace ArkhamHorrorOdds
             else
                 losses += bag[-3];
             if (Math.Max(skill - 4, 0) >= test)
-                wins += bag[-2];
+                wins += bag[-4];
             else
                 losses += bag[-4];
             if (Math.Max(skill - 5, 0) >= test)
