@@ -17,11 +17,9 @@ namespace ArkhamHorrorOdds
         public btnClear()
         {
             InitializeComponent();
-            cbCampaign.SelectedIndex = 0;
-            cbScenario.SelectedIndex = 0;
-            cbDifficulty.SelectedIndex = 1;
             cbTokens.SelectedIndex = 0;
             startBag();
+            startCampaign();
             setText();
             setExtras();
         }
@@ -36,14 +34,17 @@ namespace ArkhamHorrorOdds
             }
             if (cbScenario.Items.Count > 0)
                 cbScenario.SelectedIndex = 0;
+            setCampaign();
         }
         private void cbScenario_SelectedIndexChanged(object sender, EventArgs e)
         {
             setExtras();
+            setCampaign();
         }
         private void cbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
         {
             setExtras();
+            setCampaign();
         }
         private void btnDefault_Click(object sender, EventArgs e)
         {
@@ -157,6 +158,15 @@ namespace ArkhamHorrorOdds
             reader.Close();
         }
 
+        public void startCampaign()
+        {
+            StreamReader reader = new StreamReader("campaign.txt");
+            cbCampaign.SelectedIndex = Int32.Parse(reader.ReadLine());
+            cbScenario.SelectedIndex = Int32.Parse(reader.ReadLine());
+            cbDifficulty.SelectedIndex = Int32.Parse(reader.ReadLine());
+            reader.Close();
+        }
+
         private void setBag()
         {
             StreamWriter writer = new StreamWriter("bag.txt", false);
@@ -180,6 +190,24 @@ namespace ArkhamHorrorOdds
             writer.WriteLine(bag[18]);
             writer.Close();
         }
+
+        private void setCampaign()
+        {
+            try
+            {
+                StreamWriter writer = new StreamWriter("campaign.txt", false);
+                writer.WriteLine(cbCampaign.SelectedIndex);
+                writer.WriteLine(cbScenario.SelectedIndex);
+                writer.WriteLine(cbDifficulty.SelectedIndex);
+                writer.Close();
+            }
+            catch
+            {
+                //If will always fail the first time, thats what I want. No need to do anything here.
+            }
+            
+        }
+
         private void setExtras()
         {
             if (VarriableCheck.Check(cbCampaign.SelectedIndex, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex))

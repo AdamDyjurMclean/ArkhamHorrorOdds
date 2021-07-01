@@ -39,10 +39,12 @@ namespace ArkhamHorrorOdds
                 blessCurse += $"{curseOdds}% for curse redraw.";
             }
             if (scenario == 0)
-                return gathering(bag, difficulty, skill, bonus, star, test, extra);
-            return "";
+                gathering(bag, difficulty, skill, bonus, test, extra);
+            if (blessCurse != "")
+                result += $"\n {blessCurse}";
+            return result;
         }
-        public static string gathering(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int star, int test, int extra)
+        private static void gathering(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
             if(difficulty == 0)
             {
@@ -83,9 +85,11 @@ namespace ArkhamHorrorOdds
                 string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
                 result += $"\n {cultest}% for cultest redraw.";
             }
-            if (blessCurse != "")
-                result += $"\n {blessCurse}";
-            return result;
+            return;
+        }
+        private static void masks(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int star, int test, int extra)
+        {
+
         }
     }
 }
