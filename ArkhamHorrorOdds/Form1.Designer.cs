@@ -47,14 +47,14 @@ namespace ArkhamHorrorOdds
             this.btnCalculate = new System.Windows.Forms.Button();
             this.lblresult = new System.Windows.Forms.Label();
             this.lblExtra1 = new System.Windows.Forms.Label();
-            this.cbExtra1 = new System.Windows.Forms.NumericUpDown();
+            this.numExtra1 = new System.Windows.Forms.NumericUpDown();
             this.lblTest = new System.Windows.Forms.Label();
             this.numTest = new System.Windows.Forms.NumericUpDown();
             this.btnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExtra1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).BeginInit();
             this.SuspendLayout();
             // 
@@ -269,14 +269,14 @@ namespace ArkhamHorrorOdds
             this.lblExtra1.TabIndex = 18;
             this.lblExtra1.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
-            // cbExtra1
+            // numExtra1
             // 
-            this.cbExtra1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbExtra1.Location = new System.Drawing.Point(1013, 346);
-            this.cbExtra1.Name = "cbExtra1";
-            this.cbExtra1.Size = new System.Drawing.Size(82, 28);
-            this.cbExtra1.TabIndex = 17;
-            this.cbExtra1.Visible = false;
+            this.numExtra1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numExtra1.Location = new System.Drawing.Point(1013, 346);
+            this.numExtra1.Name = "numExtra1";
+            this.numExtra1.Size = new System.Drawing.Size(82, 28);
+            this.numExtra1.TabIndex = 17;
+            this.numExtra1.Visible = false;
             // 
             // lblTest
             // 
@@ -316,7 +316,7 @@ namespace ArkhamHorrorOdds
             this.Controls.Add(this.lblTest);
             this.Controls.Add(this.numTest);
             this.Controls.Add(this.lblExtra1);
-            this.Controls.Add(this.cbExtra1);
+            this.Controls.Add(this.numExtra1);
             this.Controls.Add(this.lblresult);
             this.Controls.Add(this.btnCalculate);
             this.Controls.Add(this.btnDefault);
@@ -341,7 +341,7 @@ namespace ArkhamHorrorOdds
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.cbExtra1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -368,7 +368,7 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.Button btnCalculate;
         private System.Windows.Forms.Label lblresult;
         private System.Windows.Forms.Label lblExtra1;
-        private System.Windows.Forms.NumericUpDown cbExtra1;
+        private System.Windows.Forms.NumericUpDown numExtra1;
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.NumericUpDown numTest;
         private System.Windows.Forms.Button btnReset;

@@ -8,55 +8,55 @@ namespace ArkhamHorrorOdds
 {
     public static class OddsBag
     {
-        public static int[] numbers(Dictionary<int, int> bag, int skill, int test, int star)
+        public static double[] numbers(Dictionary<int, int> bag, int skill, int test, int star)
         {
             int wins = 0;
             int losses = 0;
-            if (skill + 1 >= test)
+            if (Math.Max(skill + 1, 0) >= test)
                 wins += bag[1];
             else
                 losses += bag[1];
-            if (skill >= test)
+            if (Math.Max(skill, 0) >= test)
                 wins += bag[0];
             else
                 losses += bag[0];
-            if (skill - 1 >= test)
+            if (Math.Max(skill - 1, 0) >= test)
                 wins += bag[-1];
             else
                 losses += bag[-1];
-            if (skill - 2 >= test)
+            if (Math.Max(skill - 2, 0) >= test)
                 wins += bag[-2];
             else
                 losses += bag[-2];
-            if (skill - 3 >= test)
+            if (Math.Max(skill - 3, 0) >= test)
                 wins += bag[-3];
             else
                 losses += bag[-3];
-            if (skill - 4 >= test)
+            if (Math.Max(skill - 4, 0) >= test)
                 wins += bag[-2];
             else
                 losses += bag[-4];
-            if (skill - 5 >= test)
+            if (Math.Max(skill - 5, 0) >= test)
                 wins += bag[-5];
             else
                 losses += bag[-5];
-            if (skill - 6 >= test)
+            if (Math.Max(skill - 6, 0) >= test)
                 wins += bag[-6];
             else
                 losses += bag[-6];
-            if (skill - 7 >= test)
+            if (Math.Max(skill - 7, 0) >= test)
                 wins += bag[-7];
             else
                 losses += bag[-7];
-            if (skill - 8 >= test)
+            if (Math.Max(skill - 8, 0) >= test)
                 wins += bag[-8];
             else
                 losses += bag[-8];
-            if (skill + star >= test)
+            if (Math.Max(skill + star, 0) >= test)
                 wins += bag[16];
             else
                 losses += bag[16];
-            return new int[]{ wins, losses };
+            return new double[]{ wins, losses };
         }
     }
 }

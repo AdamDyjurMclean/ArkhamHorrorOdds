@@ -26,7 +26,7 @@ namespace ArkhamHorrorOdds
                 difficulty--;
             int[] array = new int[] { campaign, scenerio, difficulty };
             if (Enumerable.SequenceEqual(array, new int[] { 0, 0, 0 }))
-                return "Ghouls";
+                return "Ghouls #";
             return "";
         }
     }
