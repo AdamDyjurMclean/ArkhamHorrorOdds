@@ -84,6 +84,8 @@ namespace ArkhamHorrorOdds
             bag[14] = 0;
             bag[15] = 0;
             bag[16] = 0;
+            bag[17] = 0;
+            bag[18] = 0;
             setText();
         }
 
@@ -101,6 +103,8 @@ namespace ArkhamHorrorOdds
                 cbTokens.SelectedIndex == 11 || cbTokens.SelectedIndex == 12 || cbTokens.SelectedIndex == 13) && bag[token] < 4)
                 bag[token]++;
             if (cbTokens.SelectedIndex == 2 && bag[token] < 5)
+                bag[token]++;
+            if ((cbTokens.SelectedIndex == 16 || cbTokens.SelectedIndex == 17) && bag[token] < 10)
                 bag[token]++;
             setText();
         }
@@ -146,6 +150,8 @@ namespace ArkhamHorrorOdds
             bag.Add(14, Int32.Parse(reader.ReadLine())); //Elder Thing
             bag.Add(15, Int32.Parse(reader.ReadLine())); //Auto Fail
             bag.Add(16, Int32.Parse(reader.ReadLine())); //Elder Sign
+            bag.Add(17, Int32.Parse(reader.ReadLine())); //Bless
+            bag.Add(18, Int32.Parse(reader.ReadLine())); //Curse
             reader.Close();
         }
 
@@ -168,6 +174,8 @@ namespace ArkhamHorrorOdds
             writer.WriteLine(bag[14]);
             writer.WriteLine(bag[15]);
             writer.WriteLine(bag[16]);
+            writer.WriteLine(bag[17]);
+            writer.WriteLine(bag[18]);
             writer.Close();
         }
         private void setExtras()

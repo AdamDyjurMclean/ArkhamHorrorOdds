@@ -65,6 +65,14 @@ namespace ArkhamHorrorOdds
                 bagContains += $"{bag[15]} \t Auto Fail token\n";
             if (bag[16] == 1)
                 bagContains += $"{bag[16]} \t Elder Sign token\n";
+            if (bag[17] == 1)
+                bagContains += $"{bag[17]} \t Bless token\n";
+            else if (bag[17] > 1)
+                bagContains += $"{bag[17]} \t Bless tokens\n";
+            if (bag[18] == 1)
+                bagContains += $"{bag[18]} \t Curse token\n";
+            else if (bag[18] > 1)
+                bagContains += $"{bag[18]} \t Curse tokens\n";
             return bagContains;
         }
     }

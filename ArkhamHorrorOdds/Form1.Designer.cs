@@ -144,7 +144,9 @@ namespace ArkhamHorrorOdds
             "Tablet",
             "Elder Thing",
             "Auto Fail",
-            "Elder Sign"});
+            "Elder Sign",
+            "Bless",
+            "Curse"});
             this.cbTokens.Location = new System.Drawing.Point(448, 381);
             this.cbTokens.Name = "cbTokens";
             this.cbTokens.Size = new System.Drawing.Size(120, 24);
