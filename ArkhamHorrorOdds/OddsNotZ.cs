@@ -11,9 +11,11 @@ namespace ArkhamHorrorOdds
         static double totalTokens = 0;
         static double[] winLoss;
         static double chance = 0;
+        static string result = "";
+        static string blessCurse = "";
         public static string scenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
         {
-            if (difficulty == 1 || difficulty == 3)
+            if (difficulty == 1)
                 difficulty--;
             totalTokens = bag.Sum(x => x.Value);
             if (totalTokens == 0)
@@ -25,6 +27,17 @@ namespace ArkhamHorrorOdds
             }
             winLoss = OddsBag.numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
+            if(bag[17] > 0)
+            {
+                string blessOdds = Math.Round(bag[17] / totalTokens * 100, 2).ToString();
+                blessCurse = blessOdds + "% for bless redraw. ";
+
+            }
+            if(bag[18] > 0)
+            {
+                string curseOdds = Math.Round(bag[18] / totalTokens * 100, 2).ToString();
+                blessCurse += $"{curseOdds}% for curse redraw.";
+            }
             if (scenario == 0)
                 return gathering(bag, difficulty, skill, bonus, star, test, extra);
             return "";
@@ -50,8 +63,7 @@ namespace ArkhamHorrorOdds
                 else
                     winLoss[1] += bag[15];
                 chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-                string result = chance.ToString() + "% to win.";
-                return result;
+                result = chance.ToString() + "% to win.";
             }
             else
             {
@@ -67,11 +79,13 @@ namespace ArkhamHorrorOdds
                     winLoss[0] += bag[14];
                 winLoss[1] += bag[15];
                 chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-                string result = chance.ToString() + "% to win.";
+                result = chance.ToString() + "% to win.";
                 string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
                 result += $"\n {cultest}% for cultest redraw.";
-                return result;
             }
+            if (blessCurse != "")
+                result += $"\n {blessCurse}";
+            return result;
         }
     }
 }

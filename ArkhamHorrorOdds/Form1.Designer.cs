@@ -117,11 +117,11 @@ namespace ArkhamHorrorOdds
             // txtBag
             // 
             this.txtBag.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBag.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtBag.Location = new System.Drawing.Point(448, 95);
             this.txtBag.Name = "txtBag";
             this.txtBag.ReadOnly = true;
-            this.txtBag.Size = new System.Drawing.Size(295, 280);
+            this.txtBag.Size = new System.Drawing.Size(295, 311);
             this.txtBag.TabIndex = 4;
             this.txtBag.Text = "";
             // 
@@ -145,8 +145,10 @@ namespace ArkhamHorrorOdds
             "Tablet",
             "Elder Thing",
             "Auto Fail",
-            "Elder Sign"});
-            this.cbTokens.Location = new System.Drawing.Point(448, 381);
+            "Elder Sign",
+            "Bless",
+            "Curse"});
+            this.cbTokens.Location = new System.Drawing.Point(448, 412);
             this.cbTokens.Name = "cbTokens";
             this.cbTokens.Size = new System.Drawing.Size(120, 24);
             this.cbTokens.TabIndex = 5;
@@ -154,7 +156,7 @@ namespace ArkhamHorrorOdds
             // 
             // btnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(587, 382);
+            this.btnAdd.Location = new System.Drawing.Point(587, 413);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(75, 24);
             this.btnAdd.TabIndex = 6;
@@ -164,7 +166,7 @@ namespace ArkhamHorrorOdds
             // 
             // btnRemove
             // 
-            this.btnRemove.Location = new System.Drawing.Point(668, 382);
+            this.btnRemove.Location = new System.Drawing.Point(668, 413);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(75, 24);
             this.btnRemove.TabIndex = 7;
