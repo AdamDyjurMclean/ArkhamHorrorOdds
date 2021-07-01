@@ -13,7 +13,7 @@ namespace ArkhamHorrorOdds
         static double chance = 0;
         static string result = "";
         static string blessCurse = "";
-        public static string scenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
+        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
         {
             if (difficulty == 1)
                 difficulty--;
@@ -39,31 +39,37 @@ namespace ArkhamHorrorOdds
                 blessCurse += $"{curseOdds}% for curse redraw.";
             }
             if (scenario == 0)
-                gathering(bag, difficulty, skill, bonus, test, extra);
+                Gathering(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 1)
+                Masks(bag, difficulty, skill, bonus, test, extra);
+            else
+                Devourer(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
         }
-        private static void gathering(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        private static void Gathering(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
-            if(difficulty == 0)
+            result = chance.ToString() + "% to win.";
+            if (Math.Max(skill + bonus, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            winLoss[1] += bag[15];
+            if (difficulty == 0)
             {
                 if (Math.Max(skill + bonus - extra, 0) >= test)
                     winLoss[0] += bag[11];
                 else
                     winLoss[1] += bag[11];
-                if (Math.Max(skill - 1, 0) >= test)
+                if (Math.Max(skill + bonus - 1, 0) >= test)
                     winLoss[0] += bag[12];
                 else
                     winLoss[1] += bag[12];
-                if (Math.Max(skill - 2, 0) >= test)
+                if (Math.Max(skill + bonus - 2, 0) >= test)
                     winLoss[0] += bag[13];
                 else
                     winLoss[1] += bag[13];
-                if (Math.Max(skill, 0) >= test)
-                    winLoss[0] += bag[14];
-                else
-                    winLoss[1] += bag[15];
                 chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
                 result = chance.ToString() + "% to win.";
             }
@@ -77,9 +83,6 @@ namespace ArkhamHorrorOdds
                     winLoss[0] += bag[13];
                 else
                     winLoss[1] += bag[13];
-                if (Math.Max(skill + bonus, 0) >= test)
-                    winLoss[0] += bag[14];
-                winLoss[1] += bag[15];
                 chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
                 result = chance.ToString() + "% to win.";
                 string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
@@ -87,9 +90,77 @@ namespace ArkhamHorrorOdds
             }
             return;
         }
-        private static void masks(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int star, int test, int extra)
+        private static void Masks(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
-
+            if (Math.Max(skill + bonus - extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if (Math.Max(skill + bonus - 2, 0) >= test)
+                winLoss[0] += bag[12];
+            else
+                winLoss[1] += bag[12];
+            if (Math.Max(skill + bonus, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            winLoss[1] += bag[15];
+            if (difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 4, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+        }
+        private static void Devourer(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if(difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - extra, 0) >= test)
+                    winLoss[0] += bag[11];
+                else
+                    winLoss[1] += bag[11];
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[11];
+                else
+                    winLoss[1] += bag[11];
+                if (Math.Max(skill + bonus - 4, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                if (Math.Max(skill + bonus - 5, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+            if(bag[15] > 0)
+            {
+                string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();
+                result += $"\n {elder}% for Elder Thing redraw.";
+            }
         }
     }
 }

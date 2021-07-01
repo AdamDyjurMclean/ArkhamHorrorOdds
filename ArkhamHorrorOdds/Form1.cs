@@ -123,7 +123,7 @@ namespace ArkhamHorrorOdds
         private void btnCalculate_Click(object sender, EventArgs e)
         {
             if (cbCampaign.SelectedIndex == 0)
-                lblresult.Text = OddsNotZ.scenarioCheck(bag, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                lblresult.Text = OddsNotZ.ScenarioCheck(bag, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
             else
                 lblresult.Text = "Unfinished";
         }

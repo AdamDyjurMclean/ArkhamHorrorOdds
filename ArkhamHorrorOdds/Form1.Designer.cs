@@ -208,6 +208,11 @@ namespace ArkhamHorrorOdds
             // 
             this.numBonus.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numBonus.Location = new System.Drawing.Point(1013, 144);
+            this.numBonus.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numBonus.Name = "numBonus";
             this.numBonus.Size = new System.Drawing.Size(82, 28);
             this.numBonus.TabIndex = 10;
@@ -266,7 +271,7 @@ namespace ArkhamHorrorOdds
             // 
             this.lblExtra1.AutoSize = true;
             this.lblExtra1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExtra1.Location = new System.Drawing.Point(897, 348);
+            this.lblExtra1.Location = new System.Drawing.Point(870, 348);
             this.lblExtra1.Name = "lblExtra1";
             this.lblExtra1.Size = new System.Drawing.Size(0, 24);
             this.lblExtra1.TabIndex = 18;
