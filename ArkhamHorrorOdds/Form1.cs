@@ -11,44 +11,44 @@ using System.Windows.Forms;
 
 namespace ArkhamHorrorOdds
 {
-    public partial class btnClear : Form
+    public partial class MainForm : Form
     {
-        Dictionary<int, int> bag = new Dictionary<int, int>();
-        public btnClear()
+        readonly Dictionary<int, int> bag = new Dictionary<int, int>();
+        public MainForm()
         {
             InitializeComponent();
             cbTokens.SelectedIndex = 0;
-            startBag();
-            startCampaign();
-            setText();
-            setExtras();
+            StartBag();
+            StartCampaign();
+            SetText();
+            SetExtras();
         }
 
-        private void cbCampaign_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbCampaign_SelectedIndexChanged(object sender, EventArgs e)
         {
-            cbScenario.Items.Clear();
-            string[] scenarios = ScenarioNames.getList(cbCampaign.SelectedIndex);
+            CbScenario.Items.Clear();
+            string[] scenarios = ScenarioNames.getList(CbCampaign.SelectedIndex);
             foreach (string s in scenarios)
             {
-                cbScenario.Items.Add(s);
+                CbScenario.Items.Add(s);
             }
-            if (cbScenario.Items.Count > 0)
-                cbScenario.SelectedIndex = 0;
-            setCampaign();
+            if (CbScenario.Items.Count > 0)
+                CbScenario.SelectedIndex = 0;
+            SetCampaign();
         }
-        private void cbScenario_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbScenario_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setExtras();
-            setCampaign();
+            SetExtras();
+            SetCampaign();
         }
-        private void cbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
+        private void CbDifficulty_SelectedIndexChanged(object sender, EventArgs e)
         {
-            setExtras();
-            setCampaign();
+            SetExtras();
+            SetCampaign();
         }
-        private void btnDefault_Click(object sender, EventArgs e)
+        private void BtnDefault_Click(object sender, EventArgs e)
         {
-            int[] start = DefaultBags.bagStart(cbCampaign.SelectedIndex, cbDifficulty.SelectedIndex);
+            int[] start = DefaultBags.BagStart(CbCampaign.SelectedIndex, CbDifficulty.SelectedIndex);
             bag[1] = start[0];
             bag[0] = start[1];
             bag[-1] = start[2];
@@ -67,9 +67,9 @@ namespace ArkhamHorrorOdds
             bag[16] = start[15];
             bag[17] = 0;
             bag[18] = 0;
-            setText();
+            SetText();
         }
-        private void btnReset_Click(object sender, EventArgs e)
+        private void BtnReset_Click(object sender, EventArgs e)
         {
             bag[1] = 0;
             bag[0] = 0;
@@ -89,10 +89,10 @@ namespace ArkhamHorrorOdds
             bag[16] = 0;
             bag[17] = 0;
             bag[18] = 0;
-            setText();
+            SetText();
         }
 
-        private void btnAdd_Click(object sender, EventArgs e)
+        private void BtnAdd_Click(object sender, EventArgs e)
         {
             int token = TokenNumber.convert(cbTokens.SelectedIndex);
             if ((cbTokens.SelectedIndex == 7 || cbTokens.SelectedIndex == 8 || cbTokens.SelectedIndex == 9 ||
@@ -109,32 +109,34 @@ namespace ArkhamHorrorOdds
                 bag[token]++;
             if ((cbTokens.SelectedIndex == 16 || cbTokens.SelectedIndex == 17) && bag[token] < 10)
                 bag[token]++;
-            setText();
+            SetText();
         }
 
-        private void btnRemove_Click(object sender, EventArgs e)
+        private void BtnRemove_Click(object sender, EventArgs e)
         {
             int token = TokenNumber.convert(cbTokens.SelectedIndex);
             if (bag[token] > 0)
                 bag[token]--;
-            setText();
+            SetText();
         }
 
-        private void btnCalculate_Click(object sender, EventArgs e)
+        private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            if (cbCampaign.SelectedIndex == 0)
-                lblresult.Text = OddsNotZ.ScenarioCheck(bag, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+            if (CbCampaign.SelectedIndex == 0)
+                lblresult.Text = OddsNotZ.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+            else if(CbCampaign.SelectedIndex == 1)
+                lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
             else
                 lblresult.Text = "Unfinished";
         }
 
-        private void setText()
+        private void SetText()
         {
             txtBag.Text = TextBoxString.textBox(bag);
-            setBag();
+            SetBag();
         }
 
-        private void startBag()
+        private void StartBag()
         {
             StreamReader reader = new StreamReader("bag.txt");
             bag.Add(1, Int32.Parse(reader.ReadLine()));
@@ -158,16 +160,16 @@ namespace ArkhamHorrorOdds
             reader.Close();
         }
 
-        public void startCampaign()
+        public void StartCampaign()
         {
             StreamReader reader = new StreamReader("campaign.txt");
-            cbCampaign.SelectedIndex = Int32.Parse(reader.ReadLine());
-            cbScenario.SelectedIndex = Int32.Parse(reader.ReadLine());
-            cbDifficulty.SelectedIndex = Int32.Parse(reader.ReadLine());
+            CbCampaign.SelectedIndex = Int32.Parse(reader.ReadLine());
+            CbScenario.SelectedIndex = Int32.Parse(reader.ReadLine());
+            CbDifficulty.SelectedIndex = Int32.Parse(reader.ReadLine());
             reader.Close();
         }
 
-        private void setBag()
+        private void SetBag()
         {
             StreamWriter writer = new StreamWriter("bag.txt", false);
             writer.WriteLine(bag[1]);
@@ -191,14 +193,14 @@ namespace ArkhamHorrorOdds
             writer.Close();
         }
 
-        private void setCampaign()
+        private void SetCampaign()
         {
             try
             {
                 StreamWriter writer = new StreamWriter("campaign.txt", false);
-                writer.WriteLine(cbCampaign.SelectedIndex);
-                writer.WriteLine(cbScenario.SelectedIndex);
-                writer.WriteLine(cbDifficulty.SelectedIndex);
+                writer.WriteLine(CbCampaign.SelectedIndex);
+                writer.WriteLine(CbScenario.SelectedIndex);
+                writer.WriteLine(CbDifficulty.SelectedIndex);
                 writer.Close();
             }
             catch
@@ -208,11 +210,11 @@ namespace ArkhamHorrorOdds
             
         }
 
-        private void setExtras()
+        private void SetExtras()
         {
-            if (VarriableCheck.Check(cbCampaign.SelectedIndex, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex))
+            if (VarriableCheck.Check(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex))
             {
-                lblExtra1.Text = VarriableCheck.label(cbCampaign.SelectedIndex, cbScenario.SelectedIndex, cbDifficulty.SelectedIndex);
+                lblExtra1.Text = VarriableCheck.Label(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex);
                 numExtra1.Visible = true;
             }
             else

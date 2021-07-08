@@ -8,7 +8,7 @@ namespace ArkhamHorrorOdds
 {
     public static class OddsBag
     {
-        public static double[] numbers(Dictionary<int, int> bag, int skill, int test, int star)
+        public static double[] Numbers(Dictionary<int, int> bag, int skill, int test, int star)
         {
             int wins = 0;
             int losses = 0;

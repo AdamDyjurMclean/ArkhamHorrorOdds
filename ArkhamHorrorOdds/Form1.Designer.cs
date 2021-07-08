@@ -1,7 +1,7 @@
 ﻿
 namespace ArkhamHorrorOdds
 {
-    partial class btnClear
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -30,12 +30,12 @@ namespace ArkhamHorrorOdds
         private void InitializeComponent()
         {
             this.Header = new System.Windows.Forms.Label();
-            this.cbCampaign = new System.Windows.Forms.ComboBox();
-            this.cbScenario = new System.Windows.Forms.ComboBox();
-            this.cbDifficulty = new System.Windows.Forms.ComboBox();
+            this.CbCampaign = new System.Windows.Forms.ComboBox();
+            this.CbScenario = new System.Windows.Forms.ComboBox();
+            this.CbDifficulty = new System.Windows.Forms.ComboBox();
             this.txtBag = new System.Windows.Forms.RichTextBox();
             this.cbTokens = new System.Windows.Forms.ComboBox();
-            this.btnAdd = new System.Windows.Forms.Button();
+            this.BtnAdd = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.numBase = new System.Windows.Forms.NumericUpDown();
             this.lblBase = new System.Windows.Forms.Label();
@@ -43,14 +43,14 @@ namespace ArkhamHorrorOdds
             this.numBonus = new System.Windows.Forms.NumericUpDown();
             this.lblStar = new System.Windows.Forms.Label();
             this.numStar = new System.Windows.Forms.NumericUpDown();
-            this.btnDefault = new System.Windows.Forms.Button();
-            this.btnCalculate = new System.Windows.Forms.Button();
+            this.BtnDefault = new System.Windows.Forms.Button();
+            this.BtnCalculate = new System.Windows.Forms.Button();
             this.lblresult = new System.Windows.Forms.Label();
             this.lblExtra1 = new System.Windows.Forms.Label();
             this.numExtra1 = new System.Windows.Forms.NumericUpDown();
             this.lblTest = new System.Windows.Forms.Label();
             this.numTest = new System.Windows.Forms.NumericUpDown();
-            this.btnReset = new System.Windows.Forms.Button();
+            this.BtnReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).BeginInit();
@@ -69,50 +69,50 @@ namespace ArkhamHorrorOdds
             this.Header.Text = "Arkham Horror Odds Calculator";
             this.Header.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cbCampaign
+            // CbCampaign
             // 
-            this.cbCampaign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbCampaign.FormattingEnabled = true;
-            this.cbCampaign.Items.AddRange(new object[] {
+            this.CbCampaign.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbCampaign.FormattingEnabled = true;
+            this.CbCampaign.Items.AddRange(new object[] {
             "Night of the Zealot",
             "The Dunwich Legacy"});
-            this.cbCampaign.Location = new System.Drawing.Point(25, 75);
-            this.cbCampaign.Name = "cbCampaign";
-            this.cbCampaign.Size = new System.Drawing.Size(176, 24);
-            this.cbCampaign.TabIndex = 1;
-            this.cbCampaign.TabStop = false;
-            this.cbCampaign.SelectedIndexChanged += new System.EventHandler(this.cbCampaign_SelectedIndexChanged);
+            this.CbCampaign.Location = new System.Drawing.Point(25, 75);
+            this.CbCampaign.Name = "CbCampaign";
+            this.CbCampaign.Size = new System.Drawing.Size(176, 24);
+            this.CbCampaign.TabIndex = 1;
+            this.CbCampaign.TabStop = false;
+            this.CbCampaign.SelectedIndexChanged += new System.EventHandler(this.CbCampaign_SelectedIndexChanged);
             // 
-            // cbScenario
+            // CbScenario
             // 
-            this.cbScenario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbScenario.FormattingEnabled = true;
-            this.cbScenario.Items.AddRange(new object[] {
+            this.CbScenario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbScenario.FormattingEnabled = true;
+            this.CbScenario.Items.AddRange(new object[] {
             "The Gathering",
             "The Midnight Masks",
             "The Devourer Below"});
-            this.cbScenario.Location = new System.Drawing.Point(25, 120);
-            this.cbScenario.Name = "cbScenario";
-            this.cbScenario.Size = new System.Drawing.Size(210, 24);
-            this.cbScenario.TabIndex = 2;
-            this.cbScenario.TabStop = false;
-            this.cbScenario.SelectedIndexChanged += new System.EventHandler(this.cbScenario_SelectedIndexChanged);
+            this.CbScenario.Location = new System.Drawing.Point(25, 120);
+            this.CbScenario.Name = "CbScenario";
+            this.CbScenario.Size = new System.Drawing.Size(210, 24);
+            this.CbScenario.TabIndex = 2;
+            this.CbScenario.TabStop = false;
+            this.CbScenario.SelectedIndexChanged += new System.EventHandler(this.CbScenario_SelectedIndexChanged);
             // 
-            // cbDifficulty
+            // CbDifficulty
             // 
-            this.cbDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbDifficulty.FormattingEnabled = true;
-            this.cbDifficulty.Items.AddRange(new object[] {
+            this.CbDifficulty.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CbDifficulty.FormattingEnabled = true;
+            this.CbDifficulty.Items.AddRange(new object[] {
             "Easy",
             "Standard",
             "Hard",
             "Expert"});
-            this.cbDifficulty.Location = new System.Drawing.Point(25, 165);
-            this.cbDifficulty.Name = "cbDifficulty";
-            this.cbDifficulty.Size = new System.Drawing.Size(100, 24);
-            this.cbDifficulty.TabIndex = 3;
-            this.cbDifficulty.TabStop = false;
-            this.cbDifficulty.SelectedIndexChanged += new System.EventHandler(this.cbDifficulty_SelectedIndexChanged);
+            this.CbDifficulty.Location = new System.Drawing.Point(25, 165);
+            this.CbDifficulty.Name = "CbDifficulty";
+            this.CbDifficulty.Size = new System.Drawing.Size(100, 24);
+            this.CbDifficulty.TabIndex = 3;
+            this.CbDifficulty.TabStop = false;
+            this.CbDifficulty.SelectedIndexChanged += new System.EventHandler(this.CbDifficulty_SelectedIndexChanged);
             // 
             // txtBag
             // 
@@ -154,15 +154,15 @@ namespace ArkhamHorrorOdds
             this.cbTokens.TabIndex = 5;
             this.cbTokens.TabStop = false;
             // 
-            // btnAdd
+            // BtnAdd
             // 
-            this.btnAdd.Location = new System.Drawing.Point(587, 413);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(75, 24);
-            this.btnAdd.TabIndex = 6;
-            this.btnAdd.Text = "Add";
-            this.btnAdd.UseVisualStyleBackColor = true;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
+            this.BtnAdd.Location = new System.Drawing.Point(587, 413);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(75, 24);
+            this.BtnAdd.TabIndex = 6;
+            this.BtnAdd.Text = "Add";
+            this.BtnAdd.UseVisualStyleBackColor = true;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnRemove
             // 
@@ -172,7 +172,7 @@ namespace ArkhamHorrorOdds
             this.btnRemove.TabIndex = 7;
             this.btnRemove.Text = "Remove";
             this.btnRemove.UseVisualStyleBackColor = true;
-            this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
+            this.btnRemove.Click += new System.EventHandler(this.BtnRemove_Click);
             // 
             // numBase
             // 
@@ -236,26 +236,26 @@ namespace ArkhamHorrorOdds
             this.numStar.Size = new System.Drawing.Size(82, 28);
             this.numStar.TabIndex = 12;
             // 
-            // btnDefault
+            // BtnDefault
             // 
-            this.btnDefault.Location = new System.Drawing.Point(448, 59);
-            this.btnDefault.Name = "btnDefault";
-            this.btnDefault.Size = new System.Drawing.Size(183, 30);
-            this.btnDefault.TabIndex = 14;
-            this.btnDefault.Text = "Set Campaign Default";
-            this.btnDefault.UseVisualStyleBackColor = true;
-            this.btnDefault.Click += new System.EventHandler(this.btnDefault_Click);
+            this.BtnDefault.Location = new System.Drawing.Point(448, 59);
+            this.BtnDefault.Name = "BtnDefault";
+            this.BtnDefault.Size = new System.Drawing.Size(183, 30);
+            this.BtnDefault.TabIndex = 14;
+            this.BtnDefault.Text = "Set Campaign Default";
+            this.BtnDefault.UseVisualStyleBackColor = true;
+            this.BtnDefault.Click += new System.EventHandler(this.BtnDefault_Click);
             // 
-            // btnCalculate
+            // BtnCalculate
             // 
-            this.btnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCalculate.Location = new System.Drawing.Point(884, 285);
-            this.btnCalculate.Name = "btnCalculate";
-            this.btnCalculate.Size = new System.Drawing.Size(211, 41);
-            this.btnCalculate.TabIndex = 15;
-            this.btnCalculate.Text = "Calculate";
-            this.btnCalculate.UseVisualStyleBackColor = true;
-            this.btnCalculate.Click += new System.EventHandler(this.btnCalculate_Click);
+            this.BtnCalculate.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCalculate.Location = new System.Drawing.Point(884, 285);
+            this.BtnCalculate.Name = "BtnCalculate";
+            this.BtnCalculate.Size = new System.Drawing.Size(211, 41);
+            this.BtnCalculate.TabIndex = 15;
+            this.BtnCalculate.Text = "Calculate";
+            this.BtnCalculate.UseVisualStyleBackColor = true;
+            this.BtnCalculate.Click += new System.EventHandler(this.BtnCalculate_Click);
             // 
             // lblresult
             // 
@@ -281,6 +281,11 @@ namespace ArkhamHorrorOdds
             // 
             this.numExtra1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.numExtra1.Location = new System.Drawing.Point(1013, 346);
+            this.numExtra1.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.numExtra1.Name = "numExtra1";
             this.numExtra1.Size = new System.Drawing.Size(82, 28);
             this.numExtra1.TabIndex = 17;
@@ -305,29 +310,29 @@ namespace ArkhamHorrorOdds
             this.numTest.Size = new System.Drawing.Size(82, 28);
             this.numTest.TabIndex = 19;
             // 
-            // btnReset
+            // BtnReset
             // 
-            this.btnReset.Location = new System.Drawing.Point(637, 59);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(106, 30);
-            this.btnReset.TabIndex = 21;
-            this.btnReset.Text = "Clear";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.BtnReset.Location = new System.Drawing.Point(637, 59);
+            this.BtnReset.Name = "BtnReset";
+            this.BtnReset.Size = new System.Drawing.Size(106, 30);
+            this.BtnReset.TabIndex = 21;
+            this.BtnReset.Text = "Clear";
+            this.BtnReset.UseVisualStyleBackColor = true;
+            this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
-            // btnClear
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 703);
-            this.Controls.Add(this.btnReset);
+            this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.lblTest);
             this.Controls.Add(this.numTest);
             this.Controls.Add(this.lblExtra1);
             this.Controls.Add(this.numExtra1);
             this.Controls.Add(this.lblresult);
-            this.Controls.Add(this.btnCalculate);
-            this.Controls.Add(this.btnDefault);
+            this.Controls.Add(this.BtnCalculate);
+            this.Controls.Add(this.BtnDefault);
             this.Controls.Add(this.lblStar);
             this.Controls.Add(this.numStar);
             this.Controls.Add(this.lblBonus);
@@ -335,16 +340,16 @@ namespace ArkhamHorrorOdds
             this.Controls.Add(this.lblBase);
             this.Controls.Add(this.numBase);
             this.Controls.Add(this.btnRemove);
-            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.BtnAdd);
             this.Controls.Add(this.cbTokens);
             this.Controls.Add(this.txtBag);
-            this.Controls.Add(this.cbDifficulty);
-            this.Controls.Add(this.cbScenario);
-            this.Controls.Add(this.cbCampaign);
+            this.Controls.Add(this.CbDifficulty);
+            this.Controls.Add(this.CbScenario);
+            this.Controls.Add(this.CbCampaign);
             this.Controls.Add(this.Header);
             this.MaximumSize = new System.Drawing.Size(1200, 750);
             this.MinimumSize = new System.Drawing.Size(1200, 750);
-            this.Name = "btnClear";
+            this.Name = "MainForm";
             this.Text = "Skill Test Odds";
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).EndInit();
@@ -359,12 +364,12 @@ namespace ArkhamHorrorOdds
         #endregion
 
         private System.Windows.Forms.Label Header;
-        private System.Windows.Forms.ComboBox cbCampaign;
-        private System.Windows.Forms.ComboBox cbScenario;
-        private System.Windows.Forms.ComboBox cbDifficulty;
+        private System.Windows.Forms.ComboBox CbCampaign;
+        private System.Windows.Forms.ComboBox CbScenario;
+        private System.Windows.Forms.ComboBox CbDifficulty;
         private System.Windows.Forms.RichTextBox txtBag;
         private System.Windows.Forms.ComboBox cbTokens;
-        private System.Windows.Forms.Button btnAdd;
+        private System.Windows.Forms.Button BtnAdd;
         private System.Windows.Forms.Button btnRemove;
         private System.Windows.Forms.NumericUpDown numBase;
         private System.Windows.Forms.Label lblBase;
@@ -372,14 +377,14 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.NumericUpDown numBonus;
         private System.Windows.Forms.Label lblStar;
         private System.Windows.Forms.NumericUpDown numStar;
-        private System.Windows.Forms.Button btnDefault;
-        private System.Windows.Forms.Button btnCalculate;
+        private System.Windows.Forms.Button BtnDefault;
+        private System.Windows.Forms.Button BtnCalculate;
         private System.Windows.Forms.Label lblresult;
         private System.Windows.Forms.Label lblExtra1;
         private System.Windows.Forms.NumericUpDown numExtra1;
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.NumericUpDown numTest;
-        private System.Windows.Forms.Button btnReset;
+        private System.Windows.Forms.Button BtnReset;
     }
 }
 

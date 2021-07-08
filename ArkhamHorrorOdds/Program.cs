@@ -16,7 +16,7 @@ namespace ArkhamHorrorOdds
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new btnClear());
+            Application.Run(new MainForm());
         }
     }
 }

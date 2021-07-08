@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DefaultBags.cs" />
     <Compile Include="OddsBag.cs" />
+    <Compile Include="OddsDunwich.cs" />
     <Compile Include="OddsNotZ.cs" />
     <Compile Include="ScenarioNames.cs" />
     <Compile Include="Form1.cs">

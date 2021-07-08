@@ -7,4 +7,4 @@ C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\De
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.csproj.CoreCompileInputs.cache
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.exe
 C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.pdb
-C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.btnClear.resources
+C:\Users\Owner\Documents\For Fun Coding\ArkhamHorrorOdds\ArkhamHorrorOdds\obj\Debug\ArkhamHorrorOdds.MainForm.resources

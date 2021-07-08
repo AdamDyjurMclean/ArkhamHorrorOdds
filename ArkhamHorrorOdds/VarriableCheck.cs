@@ -17,13 +17,15 @@ namespace ArkhamHorrorOdds
                     new int[] { 0, 0, 0 },
                     new int[] { 0, 1, 0 },
                     new int[] { 0, 1, 2 },
-                    new int[] { 0, 2, 0 }
+                    new int[] { 0, 2, 0 },
+                    new int[] { 1, 0, 0},
+                    new int[] { 1, 0, 2}
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
             return false;
         }
-        public static string label(int campaign, int scenerio, int difficulty)
+        public static string Label(int campaign, int scenerio, int difficulty)
         {
             if (difficulty == 1 || difficulty == 3)
                 difficulty--;
@@ -36,6 +38,8 @@ namespace ArkhamHorrorOdds
                 return "Total Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 2, 0 }))
                 return "Monsters";
+            else if (Enumerable.SequenceEqual(array, new int[] { 1, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 0, 2 }))
+                return "Skull Value";
             return "";
         }
     }

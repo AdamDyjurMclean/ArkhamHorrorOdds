@@ -25,7 +25,7 @@ namespace ArkhamHorrorOdds
                 else
                     return "0";
             }
-            winLoss = OddsBag.numbers(bag, skill + bonus, test, star);
+            winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
             if(bag[17] > 0)
             {
@@ -55,7 +55,6 @@ namespace ArkhamHorrorOdds
                 winLoss[0] += bag[14];
             else
                 winLoss[1] += bag[14];
-            winLoss[1] += bag[15];
             if (difficulty == 0)
             {
                 if (Math.Max(skill + bonus - extra, 0) >= test)
@@ -85,8 +84,11 @@ namespace ArkhamHorrorOdds
                     winLoss[1] += bag[13];
                 chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
                 result = chance.ToString() + "% to win.";
-                string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
-                result += $"\n {cultest}% for cultest redraw.";
+                if(bag[12] > 0)
+                {
+                    string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
+                    result += $"\n {cultest}% for cultest redraw.";
+                }
             }
             return;
         }
