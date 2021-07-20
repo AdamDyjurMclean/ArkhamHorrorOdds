@@ -41,7 +41,9 @@ namespace ArkhamHorrorOdds
             if (scenario == 0)
                 Extra(bag, difficulty, skill, bonus, test, extra);
             else if(scenario == 1)
-                House(bag, difficulty, skill, bonus, test, extra);
+                House(bag, difficulty, skill, bonus, test);
+            else if(scenario == 2)
+                Museum(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -79,7 +81,7 @@ namespace ArkhamHorrorOdds
             }
             return;
         }
-        private static void House(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        private static void House(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test)
         {
             if (difficulty == 0)
             {
@@ -110,6 +112,45 @@ namespace ArkhamHorrorOdds
             chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
             result = chance.ToString() + "% to win.";
             return;
+        }
+        private static void Museum(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (Math.Max(skill + bonus + extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if(difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 1, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[14];
+                else
+                    winLoss[1] += bag[14];
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                if (Math.Max(skill + bonus - 4, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+                if (Math.Max(skill + bonus - 5, 0) >= test)
+                    winLoss[0] += bag[14];
+                else
+                    winLoss[1] += bag[14];
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
         }
     }
 }
