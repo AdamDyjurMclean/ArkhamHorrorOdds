@@ -13,7 +13,7 @@ namespace ArkhamHorrorOdds
         static double chance = 0;
         static string result = "";
         static string blessCurse = "";
-        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
+        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
         {
             if (difficulty == 1)
                 difficulty--;
@@ -50,6 +50,8 @@ namespace ArkhamHorrorOdds
                 Blood(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 5)
                 Undimensioned(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 6)
+                Doom(bag, difficulty, skill, bonus, test, extra, extra2);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -277,6 +279,56 @@ namespace ArkhamHorrorOdds
                 string tabletOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
                 result += $" {tabletOdds}% for tablet choice.";
             }
+            return;
+        }
+        private static void Doom(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        {
+            if (Math.Max(skill + bonus + extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if(difficulty == 0)
+            {
+                if(extra2 == 2)
+                {
+                    if (Math.Max(skill + bonus - 4, 0) >= test)
+                        winLoss[0] += bag[13];
+                    else
+                        winLoss[1] += bag[13];
+                }
+                else
+                {
+                    if (Math.Max(skill + bonus - 2, 0) >= test)
+                        winLoss[0] += bag[13];
+                    else
+                        winLoss[1] += bag[13];
+                }
+            }
+            else
+            {
+                if (extra2 == 2)
+                    winLoss[1] += bag[13];
+                else
+                {
+                    if (Math.Max(skill + bonus - 3, 0) >= test)
+                        winLoss[0] += bag[13];
+                    else
+                        winLoss[1] += bag[13];
+                }
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+            if (bag[12] > 0)
+            {
+                string cultestOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
+                result += $" {cultestOdds}% for cultest redraw.";
+            }
+            if (bag[14] > 0)
+            {
+                string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();
+                result += $"\n {elder}% for Elder Thing, unknown result.";
+            }
+            return;
         }
     }
 }

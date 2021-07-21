@@ -125,7 +125,7 @@ namespace ArkhamHorrorOdds
             if (CbCampaign.SelectedIndex == 0)
                 lblresult.Text = OddsNotZ.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
             else if(CbCampaign.SelectedIndex == 1)
-                lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
             else
                 lblresult.Text = "Unfinished";
         }
@@ -221,7 +221,17 @@ namespace ArkhamHorrorOdds
             {
                 lblExtra1.Text = "";
                 numExtra1.Visible = false;
-            } 
+            }
+            if (VarriableCheck.Check2(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex))
+            {
+                lblExtra2.Text = VarriableCheck.Label2(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex);
+                numExtra2.Visible = true;
+            }
+            else
+            {
+                lblExtra2.Text = "";
+                numExtra2.Visible = false;
+            }
         }
     }
 }

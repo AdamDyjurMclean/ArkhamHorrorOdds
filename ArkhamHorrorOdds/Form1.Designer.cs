@@ -51,11 +51,14 @@ namespace ArkhamHorrorOdds
             this.lblTest = new System.Windows.Forms.Label();
             this.numTest = new System.Windows.Forms.NumericUpDown();
             this.BtnReset = new System.Windows.Forms.Button();
+            this.lblExtra2 = new System.Windows.Forms.Label();
+            this.numExtra2 = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra2)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -320,11 +323,37 @@ namespace ArkhamHorrorOdds
             this.BtnReset.UseVisualStyleBackColor = true;
             this.BtnReset.Click += new System.EventHandler(this.BtnReset_Click);
             // 
+            // lblExtra2
+            // 
+            this.lblExtra2.AutoSize = true;
+            this.lblExtra2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExtra2.Location = new System.Drawing.Point(870, 393);
+            this.lblExtra2.Name = "lblExtra2";
+            this.lblExtra2.Size = new System.Drawing.Size(0, 24);
+            this.lblExtra2.TabIndex = 23;
+            this.lblExtra2.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // numExtra2
+            // 
+            this.numExtra2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numExtra2.Location = new System.Drawing.Point(1013, 391);
+            this.numExtra2.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numExtra2.Name = "numExtra2";
+            this.numExtra2.Size = new System.Drawing.Size(82, 28);
+            this.numExtra2.TabIndex = 22;
+            this.numExtra2.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 703);
+            this.Controls.Add(this.lblExtra2);
+            this.Controls.Add(this.numExtra2);
             this.Controls.Add(this.BtnReset);
             this.Controls.Add(this.lblTest);
             this.Controls.Add(this.numTest);
@@ -356,6 +385,7 @@ namespace ArkhamHorrorOdds
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -385,6 +415,8 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.Label lblTest;
         private System.Windows.Forms.NumericUpDown numTest;
         private System.Windows.Forms.Button BtnReset;
+        private System.Windows.Forms.Label lblExtra2;
+        private System.Windows.Forms.NumericUpDown numExtra2;
     }
 }
 
