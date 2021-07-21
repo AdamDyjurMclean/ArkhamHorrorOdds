@@ -27,7 +27,8 @@ namespace ArkhamHorrorOdds
             }
             winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
-            if(bag[17] > 0)
+            blessCurse = "";
+            if (bag[17] > 0)
             {
                 string blessOdds = Math.Round(bag[17] / totalTokens * 100, 2).ToString();
                 blessCurse = blessOdds + "% for bless redraw. ";

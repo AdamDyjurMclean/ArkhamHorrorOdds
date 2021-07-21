@@ -29,7 +29,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 1, 5, 0 },
                     new int[] { 1, 5, 2 },
                     new int[] { 1, 6, 0 },
-                    new int[] { 1, 6, 2 }
+                    new int[] { 1, 6, 2 },
+                    new int[] { 1, 7, 0 },
+                    new int[] { 1, 7, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -60,6 +62,8 @@ namespace ArkhamHorrorOdds
                 return "Broods";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }))
                 return "Skull Value";
+            else if (Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }))
+                return "Skull Value";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
@@ -69,7 +73,9 @@ namespace ArkhamHorrorOdds
             int[][] jaggedArray =
                 {
                     new int[] { 1, 6, 0 },
-                    new int[] { 1, 6, 2 }
+                    new int[] { 1, 6, 2 },
+                    new int[] { 1, 7, 0 },
+                    new int[] { 1, 7, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
@@ -82,6 +88,8 @@ namespace ArkhamHorrorOdds
             int[] array = new int[] { campaign, scenerio, difficulty };
             if (Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }))
                 return "Agenda #";
+            else if(Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }))
+                return "Shroud Value";
             return "";
         }
     }
