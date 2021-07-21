@@ -46,6 +46,8 @@ namespace ArkhamHorrorOdds
                 Museum(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 3)
                 Essex(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 4)
+                Blood(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -193,9 +195,49 @@ namespace ArkhamHorrorOdds
                 if (bag[12] > 0)
                 {
                     string cultestOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
-                    blessCurse += $"{cultestOdds}% for curse redraw.";
+                    result += $"{cultestOdds}% for cultest redraw.";
                 }
             }
+            return;
+        }
+        private static void Blood(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (Math.Max(skill + bonus + extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if (Math.Max(skill + bonus - 3, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            if (difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[13];
+                else
+                    winLoss[1] += bag[13];
+                chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+                result = chance.ToString() + "% to win.";
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 4, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+                chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+                result = chance.ToString() + "% to win.";
+                if (bag[13] > 0)
+                {
+                    string tabletOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
+                    result += $"{tabletOdds}% for tablet redraw.";
+                }
+            }
+            return;
         }
     }
 }
