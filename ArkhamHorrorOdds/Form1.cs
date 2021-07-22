@@ -27,7 +27,7 @@ namespace ArkhamHorrorOdds
         private void CbCampaign_SelectedIndexChanged(object sender, EventArgs e)
         {
             CbScenario.Items.Clear();
-            string[] scenarios = ScenarioNames.getList(CbCampaign.SelectedIndex);
+            string[] scenarios = ScenarioNames.GetList(CbCampaign.SelectedIndex);
             foreach (string s in scenarios)
             {
                 CbScenario.Items.Add(s);
@@ -126,6 +126,8 @@ namespace ArkhamHorrorOdds
                 lblresult.Text = OddsNotZ.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
             else if(CbCampaign.SelectedIndex == 1)
                 lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
+            else if (CbCampaign.SelectedIndex == 3)
+                lblresult.Text = OddsForgotten.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value), Convert.ToInt32(numExtra3.Value), Convert.ToInt32(cbPoison.SelectedIndex));
             else
                 lblresult.Text = "Unfinished";
         }
@@ -231,6 +233,28 @@ namespace ArkhamHorrorOdds
             {
                 lblExtra2.Text = "";
                 numExtra2.Visible = false;
+            }
+            if (VarriableCheck.Check3(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex))
+            {
+                lblExtra3.Text = VarriableCheck.Label3(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex);
+                numExtra3.Visible = true;
+            }
+            else
+            {
+                lblExtra3.Text = "";
+                numExtra3.Visible = false;
+            }
+            if (VarriableCheck.CheckP(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex))
+            {
+                lblPoison.Visible = true;
+                cbPoison.Visible = true;
+                if (cbPoison.SelectedIndex == -1)
+                    cbPoison.SelectedIndex = 0;
+            }
+            else
+            {
+                lblPoison.Visible = false;
+                cbPoison.Visible = false;
             }
         }
     }

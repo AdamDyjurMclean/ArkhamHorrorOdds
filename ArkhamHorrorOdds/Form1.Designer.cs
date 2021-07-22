@@ -53,12 +53,17 @@ namespace ArkhamHorrorOdds
             this.BtnReset = new System.Windows.Forms.Button();
             this.lblExtra2 = new System.Windows.Forms.Label();
             this.numExtra2 = new System.Windows.Forms.NumericUpDown();
+            this.lblExtra3 = new System.Windows.Forms.Label();
+            this.numExtra3 = new System.Windows.Forms.NumericUpDown();
+            this.lblPoison = new System.Windows.Forms.Label();
+            this.cbPoison = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExtra2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra3)).BeginInit();
             this.SuspendLayout();
             // 
             // Header
@@ -329,7 +334,7 @@ namespace ArkhamHorrorOdds
             // 
             this.lblExtra2.AutoSize = true;
             this.lblExtra2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblExtra2.Location = new System.Drawing.Point(870, 393);
+            this.lblExtra2.Location = new System.Drawing.Point(870, 382);
             this.lblExtra2.Name = "lblExtra2";
             this.lblExtra2.Size = new System.Drawing.Size(0, 24);
             this.lblExtra2.TabIndex = 23;
@@ -338,7 +343,7 @@ namespace ArkhamHorrorOdds
             // numExtra2
             // 
             this.numExtra2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numExtra2.Location = new System.Drawing.Point(1013, 391);
+            this.numExtra2.Location = new System.Drawing.Point(1013, 380);
             this.numExtra2.Minimum = new decimal(new int[] {
             100,
             0,
@@ -349,11 +354,65 @@ namespace ArkhamHorrorOdds
             this.numExtra2.TabIndex = 22;
             this.numExtra2.Visible = false;
             // 
+            // lblExtra3
+            // 
+            this.lblExtra3.AutoSize = true;
+            this.lblExtra3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblExtra3.Location = new System.Drawing.Point(870, 416);
+            this.lblExtra3.Name = "lblExtra3";
+            this.lblExtra3.Size = new System.Drawing.Size(0, 24);
+            this.lblExtra3.TabIndex = 25;
+            this.lblExtra3.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            // 
+            // numExtra3
+            // 
+            this.numExtra3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numExtra3.Location = new System.Drawing.Point(1013, 414);
+            this.numExtra3.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
+            this.numExtra3.Name = "numExtra3";
+            this.numExtra3.Size = new System.Drawing.Size(82, 28);
+            this.numExtra3.TabIndex = 24;
+            this.numExtra3.Visible = false;
+            // 
+            // lblPoison
+            // 
+            this.lblPoison.AutoSize = true;
+            this.lblPoison.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPoison.Location = new System.Drawing.Point(870, 450);
+            this.lblPoison.Name = "lblPoison";
+            this.lblPoison.Size = new System.Drawing.Size(100, 24);
+            this.lblPoison.TabIndex = 27;
+            this.lblPoison.Text = "Poisoned?";
+            this.lblPoison.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblPoison.Visible = false;
+            // 
+            // cbPoison
+            // 
+            this.cbPoison.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPoison.FormattingEnabled = true;
+            this.cbPoison.Items.AddRange(new object[] {
+            "No",
+            "Yes"});
+            this.cbPoison.Location = new System.Drawing.Point(995, 452);
+            this.cbPoison.Name = "cbPoison";
+            this.cbPoison.Size = new System.Drawing.Size(100, 24);
+            this.cbPoison.TabIndex = 28;
+            this.cbPoison.TabStop = false;
+            this.cbPoison.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 703);
+            this.Controls.Add(this.cbPoison);
+            this.Controls.Add(this.lblPoison);
+            this.Controls.Add(this.lblExtra3);
+            this.Controls.Add(this.numExtra3);
             this.Controls.Add(this.lblExtra2);
             this.Controls.Add(this.numExtra2);
             this.Controls.Add(this.BtnReset);
@@ -388,6 +447,7 @@ namespace ArkhamHorrorOdds
             ((System.ComponentModel.ISupportInitialize)(this.numExtra1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numTest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numExtra2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numExtra3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,6 +479,10 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.Button BtnReset;
         private System.Windows.Forms.Label lblExtra2;
         private System.Windows.Forms.NumericUpDown numExtra2;
+        private System.Windows.Forms.Label lblExtra3;
+        private System.Windows.Forms.NumericUpDown numExtra3;
+        private System.Windows.Forms.Label lblPoison;
+        private System.Windows.Forms.ComboBox cbPoison;
     }
 }
 
