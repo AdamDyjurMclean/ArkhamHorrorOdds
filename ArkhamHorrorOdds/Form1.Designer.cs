@@ -78,7 +78,9 @@ namespace ArkhamHorrorOdds
             this.CbCampaign.FormattingEnabled = true;
             this.CbCampaign.Items.AddRange(new object[] {
             "Night of the Zealot",
-            "The Dunwich Legacy"});
+            "The Dunwich Legacy",
+            "The Path to Carcosa",
+            "The Forgotten Age"});
             this.CbCampaign.Location = new System.Drawing.Point(25, 75);
             this.CbCampaign.Name = "CbCampaign";
             this.CbCampaign.Size = new System.Drawing.Size(176, 24);
