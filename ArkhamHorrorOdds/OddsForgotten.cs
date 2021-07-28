@@ -42,7 +42,7 @@ namespace ArkhamHorrorOdds
             if (scenario == 0)
                 Wild(bag, difficulty, skill, bonus, test, extra, extra2, extra3, extra4);
             else if(scenario == 1)
-                Doom(bag, difficulty, skill, bonus, test, extra, extra2);
+                Doom(bag, skill, bonus, test, extra, extra2);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -101,7 +101,7 @@ namespace ArkhamHorrorOdds
             result = chance.ToString() + "% to win.";
             return;
         }
-        private static void Doom(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        private static void Doom(Dictionary<int, int> bag, int skill, int bonus, int test, int extra, int extra2)
         {
             if (Math.Max(skill + bonus + extra, 0) >= test)
                 winLoss[0] += bag[11];
