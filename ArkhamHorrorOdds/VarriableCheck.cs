@@ -33,7 +33,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 1, 7, 0 },
                     new int[] { 1, 7, 2 },
                     new int[] { 3, 0, 0 },
-                    new int[] { 3, 0, 2 }
+                    new int[] { 3, 0, 2 },
+                    new int[] { 3, 1, 0 },
+                    new int[] { 3, 1, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -68,6 +70,8 @@ namespace ArkhamHorrorOdds
                 return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 0, 2 }))
                 return "Vengeance #";
+            else if (Enumerable.SequenceEqual(array, new int[] { 3, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 1, 2 }))
+                return "Skull Value";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
@@ -81,7 +85,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 1, 7, 0 },
                     new int[] { 1, 7, 2 },
                     new int[] { 3, 0, 0 },
-                    new int[] { 3, 0, 2 }
+                    new int[] { 3, 0, 2 },
+                    new int[] { 3, 1, 0 },
+                    new int[] { 3, 1, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
@@ -98,6 +104,10 @@ namespace ArkhamHorrorOdds
                 return "Shroud Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 0, 2 }))
                 return "Locations";
+            else if (Enumerable.SequenceEqual(array, new int[] { 3, 1, 0 }))
+                return "Location #";
+            else if (Enumerable.SequenceEqual(array, new int[] { 3, 1, 2 }))
+                return "Doom #";
             return "";
         }
         public static bool Check3(int campaign, int scenerio, int difficulty)
