@@ -51,6 +51,8 @@ namespace ArkhamHorrorOdds
                 Heart(bag, difficulty, skill, bonus, test, extra, extra4);
             else if (scenario == 5)
                 Archives(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 6)
+                Yoth(bag, difficulty, skill, bonus, test, extra, extra2);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -271,6 +273,45 @@ namespace ArkhamHorrorOdds
             }
             chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
             result = chance.ToString() + "% to win.";
+            return;
+        }
+        private static void Yoth(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        {
+            if (Math.Max(skill + bonus - extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if (extra2 > 2)
+                winLoss[1] += bag[14];
+            else
+            {
+                if (difficulty == 0)
+                {
+                    if (Math.Max(skill + bonus - 2, 0) >= test)
+                        winLoss[0] += bag[14];
+                    else
+                        winLoss[1] += bag[14];
+                }
+                else
+                {
+                    if (Math.Max(skill + bonus - 4, 0) >= test)
+                        winLoss[0] += bag[14];
+                    else
+                        winLoss[1] += bag[14];
+                }
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.\n";
+            if (bag[12] > 0)
+            {
+                string cultestOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
+                result += $"{cultestOdds}% for cultest redraw.";
+            }
+            if (bag[13] > 0)
+            {
+                string cultestOdds = Math.Round(bag[13] / totalTokens * 100, 2).ToString();
+                result += $" {cultestOdds}% for tablet redraw.";
+            }
             return;
         }
     }
