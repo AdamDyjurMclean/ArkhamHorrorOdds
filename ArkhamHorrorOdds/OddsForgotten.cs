@@ -46,7 +46,7 @@ namespace ArkhamHorrorOdds
             else if (scenario == 2)
                 Threads(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 3)
-                Boundary(bag, difficulty, skill, bonus, test, extra);
+                Boundary(bag, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -152,7 +152,7 @@ namespace ArkhamHorrorOdds
             result = chance.ToString() + "% to win.";
             return;
         }
-        private static void Boundary(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        private static void Boundary(Dictionary<int, int> bag, int skill, int bonus, int test, int extra)
         {
             if (Math.Max(skill + bonus + extra, 0) >= test)
                 winLoss[0] += bag[11];
