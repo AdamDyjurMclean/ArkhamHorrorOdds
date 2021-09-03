@@ -45,7 +45,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 3, 5, 0 },
                     new int[] { 3, 5, 2 },
                     new int[] { 3, 6, 0 },
-                    new int[] { 3, 6, 2 }
+                    new int[] { 3, 6, 2 },
+                    new int[] { 3, 7, 0 },
+                    new int[] { 3, 7, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -71,7 +73,8 @@ namespace ArkhamHorrorOdds
                     Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 3, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 1, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 3, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 3, 2 }) ||
-                    Enumerable.SequenceEqual(array, new int[] { 3, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 4, 2 }))
+                    Enumerable.SequenceEqual(array, new int[] { 3, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 4, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 3, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 7, 2 }))
                 return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 3, 2 }))
                 return "Agenda #";
@@ -156,7 +159,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 4, 0 },
-                    new int[] { 3, 4, 2 }
+                    new int[] { 3, 4, 2 },
+                    new int[] { 3, 7, 0 },
+                    new int[] { 3, 7, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
