@@ -56,24 +56,19 @@ namespace ArkhamHorrorOdds
                 return "Total Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 2, 0 }))
                 return "Monsters";
-            else if (Enumerable.SequenceEqual(array, new int[] { 1, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 0, 2 }))
-                return "Skull Value";
-            else if (Enumerable.SequenceEqual(array, new int[] { 1, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 2, 2 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 1, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 0, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 1, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 2, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 1, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 4, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 3, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 1, 2 }))
                 return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 3, 2 }))
                 return "Agenda #";
-            else if (Enumerable.SequenceEqual(array, new int[] { 1, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 4, 2 }))
-                return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 5, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 5, 2 }))
                 return "Broods";
-            else if (Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }))
-                return "Skull Value";
-            else if (Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }))
-                return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 0, 2 }))
                 return "Vengeance #";
-            else if (Enumerable.SequenceEqual(array, new int[] { 3, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 1, 2 }))
-                return "Skull Value";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
