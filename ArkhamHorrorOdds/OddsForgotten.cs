@@ -45,6 +45,8 @@ namespace ArkhamHorrorOdds
                 Doom(bag, skill, bonus, test, extra, extra2);
             else if (scenario == 2)
                 Threads(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 3)
+                Boundary(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -148,6 +150,30 @@ namespace ArkhamHorrorOdds
             }
             chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
             result = chance.ToString() + "% to win.";
+            return;
+        }
+        private static void Boundary(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (Math.Max(skill + bonus + extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if (Math.Max(skill + bonus - 4, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.\n";
+            if (bag[12] > 0)
+            {
+                string cultestOdds = Math.Round(bag[12] / totalTokens * 100, 2).ToString();
+                result += $"{cultestOdds}% for cultest redraw.";
+            }
+            if (bag[13] > 0)
+            {
+                string cultestOdds = Math.Round(bag[13] / totalTokens * 100, 2).ToString();
+                result += $" {cultestOdds}% for tablet redraw.";
+            }
             return;
         }
     }
