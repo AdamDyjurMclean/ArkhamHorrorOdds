@@ -41,6 +41,8 @@ namespace ArkhamHorrorOdds
             }
             if (scenario == 0)
                 Curtain(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 1)
+                King(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -81,6 +83,39 @@ namespace ArkhamHorrorOdds
             }
             chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
             result = chance.ToString() + "% to win.";
+            return;
+        }
+        private static void King(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 3, 0) >= test)
+                    winLoss[0] += bag[12];
+                else
+                    winLoss[1] += bag[12];
+            }
+            if (Math.Max(skill + bonus - 4, 0) >= test)
+                winLoss[0] += bag[13];
+            else
+                winLoss[1] += bag[13];
+            if (Math.Max(skill + bonus - extra, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+            if (bag[11] > 0)
+            {
+                string cultestOdds = Math.Round(bag[11] / totalTokens * 100, 2).ToString();
+                result += $"\n{cultestOdds}% for skull redraw.";
+            }
             return;
         }
     }

@@ -34,6 +34,8 @@ namespace ArkhamHorrorOdds
                     new int[] { 1, 7, 2 },
                     new int[] { 2, 0, 0 },
                     new int[] { 2, 0, 2 },
+                    new int[] { 2, 1, 0 },
+                    new int[] { 2, 1, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 1, 0 },
@@ -84,6 +86,8 @@ namespace ArkhamHorrorOdds
                 return "Broods";
             else if (Enumerable.SequenceEqual(array, new int[] { 2, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 0, 2 }))
                 return "Horror";
+            else if (Enumerable.SequenceEqual(array, new int[] { 2, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 1, 2 }))
+                return "Shroud";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 0, 2 }))
                 return "Vengeance #";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 5, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 5, 2 }))
