@@ -122,16 +122,30 @@ namespace ArkhamHorrorOdds
 
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            if (CbCampaign.SelectedIndex == 0)
-                lblresult.Text = OddsNotZ.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
-            else if(CbCampaign.SelectedIndex == 1)
-                lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
-            else if (CbCampaign.SelectedIndex == 2)
-                lblresult.Text = OddsCarcosa.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
-            else if (CbCampaign.SelectedIndex == 3)
-                lblresult.Text = OddsForgotten.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value), Convert.ToInt32(numExtra3.Value), Convert.ToInt32(cbPoison.SelectedIndex));
+            if (CheckEmpty())
+                lblresult.Text = "No Tokens";
             else
-                lblresult.Text = "Unfinished";
+            {
+                if (CbCampaign.SelectedIndex == 0)
+                    lblresult.Text = OddsNotZ.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                else if (CbCampaign.SelectedIndex == 1)
+                    lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
+                else if (CbCampaign.SelectedIndex == 2)
+                    lblresult.Text = OddsCarcosa.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                else if (CbCampaign.SelectedIndex == 3)
+                    lblresult.Text = OddsForgotten.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value), Convert.ToInt32(numExtra3.Value), Convert.ToInt32(cbPoison.SelectedIndex));
+                else
+                    lblresult.Text = "Unfinished";
+            }
+        }
+
+        private bool CheckEmpty()
+        {
+            if (bag[0] > 0 || bag[1] > 0 || bag[-1] > 0 || bag[-2] > 0 || bag[-3] > 0 || bag[-4] > 0 || bag[-5] > 0 || bag[-6] > 0 ||
+                bag[-7] > 0 || bag[-8] > 0 || bag[11] > 0 || bag[12] > 0 || bag[13] > 0 || bag[14] > 0 || bag[15] > 0 ||
+                bag[16] > 0 || bag[17] > 0 || bag[18] > 0)
+                return false;
+            return true;
         }
 
         private void SetText()
