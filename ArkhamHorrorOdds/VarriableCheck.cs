@@ -36,6 +36,10 @@ namespace ArkhamHorrorOdds
                     new int[] { 2, 0, 2 },
                     new int[] { 2, 1, 0 },
                     new int[] { 2, 1, 2 },
+                    new int[] { 2, 2, 0 },
+                    new int[] { 2, 2, 2 },
+                    new int[] { 2, 3, 0 },
+                    new int[] { 2, 3, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 1, 0 },
@@ -64,9 +68,11 @@ namespace ArkhamHorrorOdds
             int[] array = new int[] { campaign, scenerio, difficulty };
             if (Enumerable.SequenceEqual(array, new int[] { 0, 0, 0 }))
                 return "Ghouls";
-            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 2, 0 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 0 }) || 
+                Enumerable.SequenceEqual(array, new int[] { 3, 2, 0 }))
                 return "Highest Doom";
-            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 2 }) || Enumerable.SequenceEqual(array, new int[] { 3, 2, 2 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 2 }) || 
+                Enumerable.SequenceEqual(array, new int[] { 3, 2, 2 }))
                 return "Total Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 2, 0 }))
                 return "Monsters";
@@ -84,7 +90,8 @@ namespace ArkhamHorrorOdds
                 return "Agenda #";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 5, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 5, 2 }))
                 return "Broods";
-            else if (Enumerable.SequenceEqual(array, new int[] { 2, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 0, 2 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 2, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 0, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 2, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 3, 2 }))
                 return "Horror";
             else if (Enumerable.SequenceEqual(array, new int[] { 2, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 1, 2 }))
                 return "Shroud";
@@ -106,6 +113,8 @@ namespace ArkhamHorrorOdds
                     new int[] { 1, 6, 2 },
                     new int[] { 1, 7, 0 },
                     new int[] { 1, 7, 2 },
+                    new int[] { 2, 3, 0 },
+                    new int[] { 2, 3, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 1, 0 },
@@ -124,7 +133,8 @@ namespace ArkhamHorrorOdds
             int[] array = new int[] { campaign, scenerio, difficulty };
             if (Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }))
                 return "Agenda #";
-            else if(Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }))
+            else if(Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }) ||
+                Enumerable.SequenceEqual(array, new int[] { 2, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 3, 2 }))
                 return "Shroud Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 3, 0, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 0, 2 }))
                 return "Locations";

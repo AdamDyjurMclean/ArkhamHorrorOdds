@@ -13,7 +13,7 @@ namespace ArkhamHorrorOdds
         static double chance = 0;
         static string result = "";
         static string blessCurse = "";
-        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
+        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
         {
             if (difficulty == 1)
                 difficulty--;
@@ -43,6 +43,10 @@ namespace ArkhamHorrorOdds
                 Curtain(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 1)
                 King(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 2)
+                Past(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 3)
+                Oath(bag, difficulty, skill, bonus, test, extra, extra2);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -112,6 +116,60 @@ namespace ArkhamHorrorOdds
             chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
             result = chance.ToString() + "% to win.";
             if (bag[11] > 0)
+            {
+                string cultestOdds = Math.Round(bag[11] / totalTokens * 100, 2).ToString();
+                result += $"\n{cultestOdds}% for skull redraw.";
+            }
+            return;
+        }
+        private static void Past(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (Math.Max(skill + bonus - extra, 0) >= test)
+                winLoss[0] += bag[11];
+            else
+                winLoss[1] += bag[11];
+            if (difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 2, 0) >= test)
+                    winLoss[0] += bag[12] + bag[13] + bag[14];
+                else
+                    winLoss[1] += bag[12] + bag[13] + bag[14];
+            }
+            else
+            {
+                if (Math.Max(skill + bonus - 4, 0) >= test)
+                    winLoss[0] += bag[12] + bag[13] + bag[14];
+                else
+                    winLoss[1] += bag[12] + bag[13] + bag[14];
+            }
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+            return;
+        }
+        private static void Oath(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        {
+            if (difficulty == 0)
+            {
+                if (Math.Max(skill + bonus - 1, 0) >= test)
+                    winLoss[0] += bag[11];
+                else
+                    winLoss[1] += bag[11];
+            }
+            if (Math.Max(skill + bonus - extra, 0) >= test)
+                winLoss[0] += bag[12];
+            else
+                winLoss[1] += bag[12];
+            if (Math.Max(skill + bonus - extra2, 0) >= test)
+                winLoss[0] += bag[13];
+            else
+                winLoss[1] += bag[13];
+            if (Math.Max(skill + bonus, 0) >= test)
+                winLoss[0] += bag[14];
+            else
+                winLoss[1] += bag[14];
+            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
+            result = chance.ToString() + "% to win.";
+            if (bag[11] > 0 && difficulty != 0)
             {
                 string cultestOdds = Math.Round(bag[11] / totalTokens * 100, 2).ToString();
                 result += $"\n{cultestOdds}% for skull redraw.";

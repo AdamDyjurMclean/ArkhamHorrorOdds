@@ -131,7 +131,7 @@ namespace ArkhamHorrorOdds
                 else if (CbCampaign.SelectedIndex == 1)
                     lblresult.Text = OddsDunwich.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
                 else if (CbCampaign.SelectedIndex == 2)
-                    lblresult.Text = OddsCarcosa.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                    lblresult.Text = OddsCarcosa.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
                 else if (CbCampaign.SelectedIndex == 3)
                     lblresult.Text = OddsForgotten.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value), Convert.ToInt32(numExtra3.Value), Convert.ToInt32(cbPoison.SelectedIndex));
                 else
