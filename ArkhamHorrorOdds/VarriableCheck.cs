@@ -40,6 +40,8 @@ namespace ArkhamHorrorOdds
                     new int[] { 2, 2, 2 },
                     new int[] { 2, 3, 0 },
                     new int[] { 2, 3, 2 },
+                    new int[] { 2, 4, 0 },
+                    new int[] { 2, 4, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 1, 0 },
@@ -72,7 +74,8 @@ namespace ArkhamHorrorOdds
                 Enumerable.SequenceEqual(array, new int[] { 3, 2, 0 }))
                 return "Highest Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 2 }) || 
-                Enumerable.SequenceEqual(array, new int[] { 3, 2, 2 }))
+                Enumerable.SequenceEqual(array, new int[] { 3, 2, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 4, 0 }) ||
+                Enumerable.SequenceEqual(array, new int[] { 2, 4, 2 }))
                 return "Total Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 2, 0 }))
                 return "Monsters";
