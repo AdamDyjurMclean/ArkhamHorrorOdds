@@ -12,7 +12,6 @@ namespace ArkhamHorrorOdds
         static double[] winLoss;
         static double chance = 0;
         static string result = "";
-        static string blessCurse = "";
         public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
         {
             if (difficulty == 1)
@@ -20,7 +19,7 @@ namespace ArkhamHorrorOdds
             totalTokens = bag.Sum(x => x.Value);
             winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
-            blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
+            string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             if (scenario == 0)
                 Gathering(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 1)
