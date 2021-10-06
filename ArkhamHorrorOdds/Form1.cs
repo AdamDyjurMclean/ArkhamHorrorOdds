@@ -122,7 +122,7 @@ namespace ArkhamHorrorOdds
 
         private void BtnCalculate_Click(object sender, EventArgs e)
         {
-            if (CheckEmpty())
+            if (bag.Sum(x => x.Value) == 0)
                 lblresult.Text = "No Tokens";
             else
             {
@@ -137,15 +137,6 @@ namespace ArkhamHorrorOdds
                 else
                     lblresult.Text = "Unfinished";
             }
-        }
-
-        private bool CheckEmpty()
-        {
-            if (bag[0] > 0 || bag[1] > 0 || bag[-1] > 0 || bag[-2] > 0 || bag[-3] > 0 || bag[-4] > 0 || bag[-5] > 0 || bag[-6] > 0 ||
-                bag[-7] > 0 || bag[-8] > 0 || bag[11] > 0 || bag[12] > 0 || bag[13] > 0 || bag[14] > 0 || bag[15] > 0 ||
-                bag[16] > 0 || bag[17] > 0 || bag[18] > 0)
-                return false;
-            return true;
         }
 
         private void SetText()

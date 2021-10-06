@@ -64,6 +64,7 @@
     <Compile Include="TextBoxString.cs" />
     <Compile Include="TokenNumber.cs" />
     <Compile Include="VarriableCheck.cs" />
+    <Compile Include="WinChecker.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
