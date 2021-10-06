@@ -20,18 +20,7 @@ namespace ArkhamHorrorOdds
             totalTokens = bag.Sum(x => x.Value);
             winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
-            blessCurse = "";
-            if (bag[17] > 0)
-            {
-                string blessOdds = Math.Round(bag[17] / totalTokens * 100, 2).ToString();
-                blessCurse = blessOdds + "% for bless redraw. ";
-
-            }
-            if(bag[18] > 0)
-            {
-                string curseOdds = Math.Round(bag[18] / totalTokens * 100, 2).ToString();
-                blessCurse += $"{curseOdds}% for curse redraw.";
-            }
+            blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             if (scenario == 0)
                 Gathering(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 1)
