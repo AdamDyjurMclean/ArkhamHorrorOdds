@@ -10,7 +10,6 @@ namespace ArkhamHorrorOdds
     {
         static double totalTokens = 0;
         static double[] winLoss;
-        static double chance = 0;
         static string result = "";
         public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra)
         {
@@ -35,7 +34,7 @@ namespace ArkhamHorrorOdds
             winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 0);
             if (difficulty == 0)
             {
-                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill+bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 1);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
             }
@@ -44,13 +43,9 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 2);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
             }
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+            result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0 && difficulty != 0)
-            {
-                string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
-                result += $"\n {cultest}% for cultest redraw.";
-            }
+                result += WinChecker.CultestRedraw(bag, totalTokens);
             return;
         }
         private static void Masks(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
@@ -62,8 +57,7 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
             else
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+            result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
         private static void Devourer(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
@@ -80,13 +74,9 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 5);
             }
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
-            if(bag[14] > 0)
-            {
-                string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();
-                result += $"\n {elder}% for Elder Thing.";
-            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[14] > 0)
+                result += WinChecker.ElderThing(bag, totalTokens);
             return;
         }
     }

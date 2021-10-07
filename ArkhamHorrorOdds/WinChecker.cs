@@ -38,16 +38,22 @@ namespace ArkhamHorrorOdds
             string result = chance.ToString() + "% to win.";
             return result;
         }
+        public static string CultestRedraw(Dictionary<int, int> bag, double totalTokens) //Night S2
+        {
+            string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
+            string result = $"\n {cultest}% for Cultest redraw.";
+            return result;
+        }
+        public static string ElderThing(Dictionary<int, int> bag, double totalTokens) //Night S3
+        {
+            string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();
+            string result = $"\n {elder}% for Elder Thing.";
+            return result;
+        }
         public static string UnknownElderThing(Dictionary<int, int> bag, double totalTokens) //Dunwitch S1
         {
             string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();
             string result = $"\n {elder}% for Elder Thing, unknown result.";
-            return result;
-        }
-        public static string CultestRedraw(Dictionary<int, int> bag, double totalTokens) //Dunwitch S4
-        {
-            string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
-            string result = $"\n {cultest}% for Cultest redraw.";
             return result;
         }
         public static string TabletRedraw(Dictionary<int, int> bag, double totalTokens) //Dunwitch S5
