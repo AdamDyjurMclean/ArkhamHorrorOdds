@@ -38,7 +38,7 @@ namespace ArkhamHorrorOdds
             string result = chance.ToString() + "% to win.";
             return result;
         }
-        public static string CultestRedraw(Dictionary<int, int> bag, double totalTokens) //Night S2
+        public static string CultestRedraw(Dictionary<int, int> bag, double totalTokens) //Night S1
         {
             string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
             string result = $"\n {cultest}% for Cultest redraw.";
