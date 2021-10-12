@@ -12,33 +12,14 @@ namespace ArkhamHorrorOdds
         static double[] winLoss;
         static double chance = 0;
         static string result = "";
-        static string blessCurse = "";
         public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
         {
             if (difficulty == 1)
                 difficulty--;
             totalTokens = bag.Sum(x => x.Value);
-            if (totalTokens == 0)
-            {
-                if (skill + bonus >= test)
-                    return "1";
-                else
-                    return "0";
-            }
             winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
-            blessCurse = "";
-            if (bag[17] > 0)
-            {
-                string blessOdds = Math.Round(bag[17] / totalTokens * 100, 2).ToString();
-                blessCurse = blessOdds + "% for bless redraw. ";
-
-            }
-            if (bag[18] > 0)
-            {
-                string curseOdds = Math.Round(bag[18] / totalTokens * 100, 2).ToString();
-                blessCurse += $"{curseOdds}% for curse redraw.";
-            }
+            string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             if (scenario == 0)
                 Curtain(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 1)
@@ -58,168 +39,84 @@ namespace ArkhamHorrorOdds
             if (difficulty == 0)
             {
                 if (extra >= 3)
-                {
-                    if (Math.Max(skill + bonus - 3, 0) >= test)
-                        winLoss[0] += bag[11];
-                    else
-                        winLoss[1] += bag[11];
-                }
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 3);
                 else
-                {
-                    if (Math.Max(skill + bonus - 1, 0) >= test)
-                        winLoss[0] += bag[11];
-                    else
-                        winLoss[1] += bag[11];
-                }
-                if (Math.Max(skill + bonus - 4, 0) >= test)
-                    winLoss[0] += bag[12] + bag[13] + bag[14];
-                else
-                    winLoss[1] += bag[12] + bag[13] + bag[14];
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
             }
             else
             {
-                if (Math.Max(skill + bonus - Math.Max(1, extra), 0) >= test)
-                    winLoss[0] += bag[11];
-                else
-                    winLoss[1] += bag[11];
-                if (Math.Max(skill + bonus - 5, 0) >= test)
-                    winLoss[0] += bag[12] + bag[13] + bag[14];
-                else
-                    winLoss[1] += bag[12] + bag[13] + bag[14];
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, Math.Max(extra, 1));
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 5);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 5);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 5);
             }
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+            result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
         private static void King(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
             if (difficulty == 0)
-            {
-                if (Math.Max(skill + bonus - 2, 0) >= test)
-                    winLoss[0] += bag[12];
-                else
-                    winLoss[1] += bag[12];
-            }
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
             else
-            {
-                if (Math.Max(skill + bonus - 3, 0) >= test)
-                    winLoss[0] += bag[12];
-                else
-                    winLoss[1] += bag[12];
-            }
-            if (Math.Max(skill + bonus - 4, 0) >= test)
-                winLoss[0] += bag[13];
-            else
-                winLoss[1] += bag[13];
-            if (Math.Max(skill + bonus - extra, 0) >= test)
-                winLoss[0] += bag[14];
-            else
-                winLoss[1] += bag[14];
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 3);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra);
+            result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[11] > 0)
-            {
-                string cultestOdds = Math.Round(bag[11] / totalTokens * 100, 2).ToString();
-                result += $"\n{cultestOdds}% for skull redraw.";
-            }
+                result += WinChecker.SkullRedraw(bag, totalTokens);
             return;
         }
         private static void Past(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
-            if (Math.Max(skill + bonus - extra, 0) >= test)
-                winLoss[0] += bag[11];
-            else
-                winLoss[1] += bag[11];
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
             if (difficulty == 0)
             {
-                if (Math.Max(skill + bonus - 2, 0) >= test)
-                    winLoss[0] += bag[12] + bag[13] + bag[14];
-                else
-                    winLoss[1] += bag[12] + bag[13] + bag[14];
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 2);
             }
             else
             {
-                if (Math.Max(skill + bonus - 4, 0) >= test)
-                    winLoss[0] += bag[12] + bag[13] + bag[14];
-                else
-                    winLoss[1] += bag[12] + bag[13] + bag[14];
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
             }
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+            result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
         private static void Oath(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
         {
             if (difficulty == 0)
-            {
-                if (Math.Max(skill + bonus - 1, 0) >= test)
-                    winLoss[0] += bag[11];
-                else
-                    winLoss[1] += bag[11];
-            }
-            if (Math.Max(skill + bonus - extra, 0) >= test)
-                winLoss[0] += bag[12];
-            else
-                winLoss[1] += bag[12];
-            if (Math.Max(skill + bonus - extra2, 0) >= test)
-                winLoss[0] += bag[13];
-            else
-                winLoss[1] += bag[13];
-            if (Math.Max(skill + bonus, 0) >= test)
-                winLoss[0] += bag[14];
-            else
-                winLoss[1] += bag[14];
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 1);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, extra);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, extra2);
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[14] > 0)
+                result += WinChecker.ElderThing(bag, totalTokens);            
             if (bag[11] > 0 && difficulty != 0)
-            {
-                string cultestOdds = Math.Round(bag[11] / totalTokens * 100, 2).ToString();
-                result += $"\n{cultestOdds}% for skull redraw.";
-            }
+                result += WinChecker.SkullRedraw(bag, totalTokens);
             return;
         }
         private static void Truth(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
         {
-            if (Math.Max(skill + bonus - 2, 0) >= test)
-                winLoss[0] += bag[12];
-            else
-                winLoss[1] += bag[12];
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
             if (difficulty == 0)
             {
-                if (Math.Max(skill + bonus - Math.Min(extra, 5), 0) >= test)
-                    winLoss[0] += bag[11];
-                else
-                    winLoss[1] += bag[11];
-                if (Math.Max(skill + bonus - 2, 0) >= test)
-                    winLoss[0] += bag[12] + bag[14];
-                else
-                    winLoss[1] += bag[12] + bag[14];
-                if (Math.Max(skill + bonus - 3, 0) >= test)
-                    winLoss[0] += bag[13];
-                else
-                    winLoss[1] += bag[13];
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, Math.Min(extra, 5));
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 2);
             }
             else
             {
-                if (Math.Max(skill + bonus - extra, 0) >= test)
-                    winLoss[0] += bag[11];
-                else
-                    winLoss[1] += bag[11];
-                if (Math.Max(skill + bonus - 2, 0) >= test)
-                    winLoss[0] += bag[12];
-                else
-                    winLoss[1] += bag[12];
-                if (Math.Max(skill + bonus - 4, 0) >= test)
-                    winLoss[0] += bag[13];
-                else
-                    winLoss[1] += bag[13];
-                if (Math.Max(skill + bonus - 3, 0) >= test)
-                    winLoss[0] += bag[14];
-                else
-                    winLoss[1] += bag[14];
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
             }
-            chance = Math.Round(winLoss[0] / totalTokens * 100, 2);
-            result = chance.ToString() + "% to win.";
+            result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
     }
