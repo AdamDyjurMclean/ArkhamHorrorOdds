@@ -11,7 +11,7 @@ namespace ArkhamHorrorOdds
         static double totalTokens = 0;
         static double[] winLoss;
         static string result = "";
-        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
+        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2, int extra3)
         {
             if (difficulty == 1)
                 difficulty--;
@@ -32,7 +32,7 @@ namespace ArkhamHorrorOdds
             else if (scenario == 5)
                 Mask(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 6)
-                Stars(bag, difficulty, skill, bonus, test, extra);
+                Stars(bag, difficulty, skill, bonus, test, extra, extra3);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -141,9 +141,23 @@ namespace ArkhamHorrorOdds
             result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
-        private static void Stars(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        private static void Stars(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
         {
-
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+            if (difficulty == 0)
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 2);
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+                if (extra2 == 1)
+                    winLoss[1] += bag[12];
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[13] > 0)
+                result += WinChecker.TabletRedraw(bag, totalTokens);
+            if (bag[12] > 0 && (difficulty == 0 || (difficulty != 0 && extra2 == 0)))
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
         }
     }
 }

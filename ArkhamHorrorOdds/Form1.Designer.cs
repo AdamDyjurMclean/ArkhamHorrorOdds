@@ -384,9 +384,8 @@ namespace ArkhamHorrorOdds
             this.lblPoison.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPoison.Location = new System.Drawing.Point(870, 450);
             this.lblPoison.Name = "lblPoison";
-            this.lblPoison.Size = new System.Drawing.Size(100, 24);
+            this.lblPoison.Size = new System.Drawing.Size(0, 24);
             this.lblPoison.TabIndex = 27;
-            this.lblPoison.Text = "Poisoned?";
             this.lblPoison.TextAlign = System.Drawing.ContentAlignment.TopRight;
             this.lblPoison.Visible = false;
             // 

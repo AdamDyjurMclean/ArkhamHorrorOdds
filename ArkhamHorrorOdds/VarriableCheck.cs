@@ -44,6 +44,8 @@ namespace ArkhamHorrorOdds
                     new int[] { 2, 4, 2 },
                     new int[] { 2, 5, 0 },
                     new int[] { 2, 5, 2 },
+                    new int[] { 2, 6, 0 },
+                    new int[] { 2, 6, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 1, 0 },
@@ -72,12 +74,12 @@ namespace ArkhamHorrorOdds
             int[] array = new int[] { campaign, scenerio, difficulty };
             if (Enumerable.SequenceEqual(array, new int[] { 0, 0, 0 }))
                 return "Ghouls";
-            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 0 }) || 
-                Enumerable.SequenceEqual(array, new int[] { 3, 2, 0 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 0 }) ||
+                Enumerable.SequenceEqual(array, new int[] { 2, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 2, 0 }))
                 return "Highest Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 1, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 2, 2 }) || 
                 Enumerable.SequenceEqual(array, new int[] { 3, 2, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 4, 0 }) ||
-                Enumerable.SequenceEqual(array, new int[] { 2, 4, 2 }))
+                Enumerable.SequenceEqual(array, new int[] { 2, 6, 2 }) || Enumerable.SequenceEqual(array, new int[] { 2, 4, 2 }))
                 return "Total Doom";
             else if (Enumerable.SequenceEqual(array, new int[] { 0, 2, 0 }))
                 return "Monsters";
@@ -181,6 +183,8 @@ namespace ArkhamHorrorOdds
                 difficulty--;
             int[][] jaggedArray =
                 {
+                    new int[] { 2, 6, 0 },
+                    new int[] { 2, 6, 2 },
                     new int[] { 3, 0, 0 },
                     new int[] { 3, 0, 2 },
                     new int[] { 3, 4, 0 },
