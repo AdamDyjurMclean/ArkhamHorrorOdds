@@ -10,7 +10,6 @@ namespace ArkhamHorrorOdds
     {
         static double totalTokens = 0;
         static double[] winLoss;
-        static double chance = 0;
         static string result = "";
         public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
         {
@@ -30,6 +29,10 @@ namespace ArkhamHorrorOdds
                 Oath(bag, difficulty, skill, bonus, test, extra, extra2);
             else if (scenario == 4)
                 Truth(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 5)
+                Mask(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 6)
+                Stars(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -118,6 +121,29 @@ namespace ArkhamHorrorOdds
             }
             result = WinChecker.ResultString(winLoss, totalTokens);
             return;
+        }
+        private static void Mask(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, Math.Min(extra, 5));
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            return;
+        }
+        private static void Stars(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+
         }
     }
 }
