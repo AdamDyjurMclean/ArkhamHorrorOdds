@@ -15,6 +15,8 @@ namespace ArkhamHorrorOdds
         "The Pallid Mask", "Black Stars Rise", "Dim Carcosa"};
         static readonly string[] tfa = { "The Untamed Wilds", "The Doom of Eztli", "Threads of Fate", "The Boundary Beyond", "Heart of the Elders",
         "The City of Archives", "The Depths of Yoth", "Shattered Aeons" };
+        static readonly string[] cu = { "Disappearance at the Twilight Estate", "The Witching Hour", "At Death’s Doorstep", "The Secret Name",
+        "The Wages of Sin", "For the Greater Good", "Union and Disillusion", "In the Clutches of Chaos", "Before the Black Throne"};
         public static string[] GetList(int campaign)
         {
             switch (campaign)
@@ -27,6 +29,8 @@ namespace ArkhamHorrorOdds
                     return ptc;
                 case 3:
                     return tfa;
+                case 4:
+                    return cu;
                 default:
                     return new string[]{ };
             }
