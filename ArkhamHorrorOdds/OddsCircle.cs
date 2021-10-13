@@ -26,6 +26,8 @@ namespace ArkhamHorrorOdds
                 Door(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 3)
                 Name(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 4)
+                Sin(bag, difficulty, skill, bonus, test, extra);
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             return result;
         }
@@ -99,6 +101,25 @@ namespace ArkhamHorrorOdds
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0)
                 result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Sin(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 2);
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[11] > 0 && difficulty != 0)
+                result += WinChecker.SkullRedraw(bag, totalTokens);
             return;
         }
     }
