@@ -20,6 +20,8 @@ namespace ArkhamHorrorOdds
             winLoss[1] += bag[15];
             if (scenario == 0)
                 Estate(bag, difficulty, skill, bonus, test);
+            else if (scenario == 1)
+                Hour(bag, difficulty, skill, bonus, test);
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             return result;
         }
@@ -38,6 +40,25 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 0);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 0);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 0);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            return;
+        }
+        private static void Hour(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test)
+        {
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 0);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 0);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
             }
             result = WinChecker.ResultString(winLoss, totalTokens);
             return;
