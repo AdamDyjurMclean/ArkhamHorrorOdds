@@ -44,6 +44,12 @@ namespace ArkhamHorrorOdds
             string result = $"\n {tablet}% for Skull redraw.";
             return result;
         }
+        public static string UnknownSkull(Dictionary<int, int> bag, double totalTokens) //Circle S6
+        {
+            string skull = Math.Round((bag[11] / totalTokens * 100), 2).ToString();
+            string result = $"\n {skull}% for Skull, unknown result.";
+            return result;
+        }
         public static string CultestRedraw(Dictionary<int, int> bag, double totalTokens) //Night S1
         {
             string cultest = Math.Round((bag[12] / totalTokens * 100), 2).ToString();
