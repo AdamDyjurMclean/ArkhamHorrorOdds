@@ -70,7 +70,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 4, 3, 2 },
                     new int[] { 4, 4, 0 },
                     new int[] { 4, 5, 0 },
-                    new int[] { 4, 5, 2 }
+                    new int[] { 4, 5, 2 },
+                    new int[] { 4, 7, 0 },
+                    new int[] { 4, 7, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -127,6 +129,8 @@ namespace ArkhamHorrorOdds
                 return "Depth level";
             else if (Enumerable.SequenceEqual(array, new int[] { 4, 4, 0 }))
                 return "Unfinished#";
+            else if (Enumerable.SequenceEqual(array, new int[] { 4, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 4, 7, 2 }))
+                return "Total D+B";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
