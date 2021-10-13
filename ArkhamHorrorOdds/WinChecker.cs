@@ -62,6 +62,12 @@ namespace ArkhamHorrorOdds
             string result = $"\n {tablet}% for Tablet choice.";
             return result;
         }
+        public static string UnknownTablet(Dictionary<int, int> bag, double totalTokens) //Circle S5
+        {
+            string tablet = Math.Round((bag[13] / totalTokens * 100), 2).ToString();
+            string result = $"\n {tablet}% for Tablet, unknown result.";
+            return result;
+        }
         public static string ElderThing(Dictionary<int, int> bag, double totalTokens) //Night S3
         {
             string elder = Math.Round((bag[14] / totalTokens * 100), 2).ToString();

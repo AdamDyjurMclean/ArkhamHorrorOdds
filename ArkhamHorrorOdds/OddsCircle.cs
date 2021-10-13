@@ -28,7 +28,11 @@ namespace ArkhamHorrorOdds
                 Name(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 4)
                 Sin(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 5)
+                Good(bag, difficulty, skill, bonus, test, extra);
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
+            if (blessCurse != "")
+                result += $"\n {blessCurse}";
             return result;
         }
         private static void Estate(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test)
@@ -120,6 +124,26 @@ namespace ArkhamHorrorOdds
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[11] > 0 && difficulty != 0)
                 result += WinChecker.SkullRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Good(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            if (difficulty != 0)
+            {
+                if (bag[13] > 0)
+                    result += WinChecker.UnknownTablet(bag, totalTokens);
+                if (bag[14] > 0)
+                    result += WinChecker.UnknownElderThing(bag, totalTokens);
+            }
             return;
         }
     }
