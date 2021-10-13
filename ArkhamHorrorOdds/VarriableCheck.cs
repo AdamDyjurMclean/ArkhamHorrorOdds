@@ -99,6 +99,7 @@ namespace ArkhamHorrorOdds
                     Enumerable.SequenceEqual(array, new int[] { 3, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 4, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 3, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 3, 7, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 4, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 4, 2, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 4, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 4, 3, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 2, 7, 0 }))
                 return "Skull Value";
             else if (Enumerable.SequenceEqual(array, new int[] { 1, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 3, 2 }))
