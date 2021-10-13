@@ -34,6 +34,8 @@ namespace ArkhamHorrorOdds
                 Union(bag, difficulty, skill, bonus, test);
             else if (scenario == 7)
                 Chaos(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 8)
+                Throne(bag, difficulty, skill, bonus, test, extra);
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
@@ -182,6 +184,25 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Throne(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, Math.Max((extra + 1) / 2, 2));
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, Math.Max(extra, 2));
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 6);
             }
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0)
