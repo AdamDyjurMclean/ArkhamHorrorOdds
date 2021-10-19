@@ -86,7 +86,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 4, 0 },
                     new int[] { 5, 4, 2 },
                     new int[] { 5, 5, 0 },
-                    new int[] { 5, 5, 2 }
+                    new int[] { 5, 5, 2 },
+                    new int[] { 5, 6, 0 },
+                    new int[] { 5, 6, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -157,6 +159,8 @@ namespace ArkhamHorrorOdds
                 return "Alarm Level";
             else if (Enumerable.SequenceEqual(array, new int[] { 5, 5, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 5, 2 }))
                 return "Card Damage";
+            else if (Enumerable.SequenceEqual(array, new int[] { 5, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 6, 2 }))
+                return "Act#";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
@@ -180,7 +184,8 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 0, 0 },
                     new int[] { 5, 0, 2 },
                     new int[] { 5, 1, 0 },
-                    new int[] { 5, 1, 2 }
+                    new int[] { 5, 1, 2 },
+                    new int[] { 5, 6, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
@@ -191,7 +196,8 @@ namespace ArkhamHorrorOdds
             if(difficulty == 1 || difficulty == 3)
                 difficulty--;
             int[] array = new int[] { campaign, scenerio, difficulty };
-            if(Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 }))
+            if(Enumerable.SequenceEqual(array, new int[] { 1, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 6, 2 })
+                || Enumerable.SequenceEqual(array, new int[] { 5, 6, 2 }))
                 return "Agenda #";
             else if(Enumerable.SequenceEqual(array, new int[] { 1, 7, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 7, 2 }) ||
                 Enumerable.SequenceEqual(array, new int[] { 2, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 2, 3, 2 }))
