@@ -26,6 +26,9 @@ namespace ArkhamHorrorOdds
                 case 4:
                     return new string[] { "Disappearance at the Twilight Estate", "The Witching Hour", "At Death’s Doorstep", "The Secret Name",
                         "The Wages of Sin", "For the Greater Good", "Union and Disillusion", "In the Clutches of Chaos", "Before the Black Throne"};
+                case 5:
+                    return new string[] { "Beyond the Gates of Sleep", "Waking Nightmare", "The Search for Kadath", "A Thousand Shapes of Horror",
+                        "Dark Side of the Moon", "Point of No Return", "Where the Gods Dwell", "Weaver of the Cosmos"};
                 default:
                     return new string[]{ };
             }
