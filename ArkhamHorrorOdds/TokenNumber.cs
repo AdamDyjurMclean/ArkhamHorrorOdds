@@ -8,7 +8,7 @@ namespace ArkhamHorrorOdds
 {
     public static class TokenNumber
     {
-        public static int convert(int input)
+        public static int Convert(int input)
         {
             switch (input)
             {

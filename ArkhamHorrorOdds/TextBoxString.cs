@@ -8,7 +8,7 @@ namespace ArkhamHorrorOdds
 {
     public static class TextBoxString
     {
-        public static string textBox(Dictionary<int, int> bag)
+        public static string TextBox(Dictionary<int, int> bag)
         {
             string bagContains = "";
             if(bag[1] == 1)

@@ -98,7 +98,7 @@ namespace ArkhamHorrorOdds
 
         private void BtnAdd_Click(object sender, EventArgs e)
         {
-            int token = TokenNumber.convert(cbTokens.SelectedIndex);
+            int token = TokenNumber.Convert(cbTokens.SelectedIndex);
             if ((cbTokens.SelectedIndex == 7 || cbTokens.SelectedIndex == 8 || cbTokens.SelectedIndex == 9 ||
                 cbTokens.SelectedIndex == 14 || cbTokens.SelectedIndex == 15) && bag[token] < 1)
                 bag[token]++;
@@ -118,7 +118,7 @@ namespace ArkhamHorrorOdds
 
         private void BtnRemove_Click(object sender, EventArgs e)
         {
-            int token = TokenNumber.convert(cbTokens.SelectedIndex);
+            int token = TokenNumber.Convert(cbTokens.SelectedIndex);
             if (bag[token] > 0)
                 bag[token]--;
             SetText();
@@ -140,6 +140,8 @@ namespace ArkhamHorrorOdds
                     lblresult.Text = OddsForgotten.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value), Convert.ToInt32(numExtra3.Value), Convert.ToInt32(cbPoison.SelectedIndex));
                 else if (CbCampaign.SelectedIndex == 4)
                     lblresult.Text = OddsCircle.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
+                else if (CbCampaign.SelectedIndex == 5)
+                    lblresult.Text = OddsDream.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
                 else
                     lblresult.Text = "Unfinished";
             }
@@ -147,7 +149,7 @@ namespace ArkhamHorrorOdds
 
         private void SetText()
         {
-            txtBag.Text = TextBoxString.textBox(bag);
+            txtBag.Text = TextBoxString.TextBox(bag);
             SetBag();
         }
 

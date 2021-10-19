@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="DefaultBags.cs" />
     <Compile Include="OddsCarcosa.cs" />
+    <Compile Include="OddsDream.cs" />
     <Compile Include="OddsForgotten.cs" />
     <Compile Include="OddsBag.cs" />
     <Compile Include="OddsDunwich.cs" />
