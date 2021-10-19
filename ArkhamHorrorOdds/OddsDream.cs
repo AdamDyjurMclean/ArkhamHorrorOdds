@@ -25,6 +25,10 @@ namespace ArkhamHorrorOdds
                 Nightmare(bag, difficulty, skill, bonus, test, extra, extra2);
             else if(scenario == 2)
                 Kadath(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 3)
+                Shapes(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 4)
+                Moon(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -85,6 +89,25 @@ namespace ArkhamHorrorOdds
             {
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, -1);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Moon(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if(difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, (extra + 1) / 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, -1);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 0);
             }
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0)
