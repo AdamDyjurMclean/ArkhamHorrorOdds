@@ -29,6 +29,8 @@ namespace ArkhamHorrorOdds
                 Shapes(bag, difficulty, skill, bonus, test, extra);
             else if (scenario == 4)
                 Moon(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 5)
+                Point(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -108,6 +110,25 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 0);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Point(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if(difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, -1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 3);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 0);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
             }
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0)

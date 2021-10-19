@@ -84,7 +84,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 3, 0 },
                     new int[] { 5, 3, 2 },
                     new int[] { 5, 4, 0 },
-                    new int[] { 5, 4, 2 }
+                    new int[] { 5, 4, 2 },
+                    new int[] { 5, 5, 0 },
+                    new int[] { 5, 5, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -153,6 +155,8 @@ namespace ArkhamHorrorOdds
                 return "Signs#";
             else if (Enumerable.SequenceEqual(array, new int[] { 5, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 4, 2 }))
                 return "Alarm Level";
+            else if (Enumerable.SequenceEqual(array, new int[] { 5, 5, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 5, 2 }))
+                return "Card Damage";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
