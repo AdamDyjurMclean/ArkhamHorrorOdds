@@ -80,7 +80,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 1, 0 },
                     new int[] { 5, 1, 2 },
                     new int[] { 5, 2, 0 },
-                    new int[] { 5, 2, 2 }
+                    new int[] { 5, 2, 2 },
+                    new int[] { 5, 3, 0 },
+                    new int[] { 5, 3, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -116,6 +118,7 @@ namespace ArkhamHorrorOdds
                     Enumerable.SequenceEqual(array, new int[] { 4, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 4, 2, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 4, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 4, 3, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 5, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 1, 2 }) ||
+                    Enumerable.SequenceEqual(array, new int[] { 5, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 3, 2 }) ||
                     Enumerable.SequenceEqual(array, new int[] { 2, 7, 0 }))
                 return "Skull Value";
             else if(Enumerable.SequenceEqual(array, new int[] { 1, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 1, 3, 2 }))
