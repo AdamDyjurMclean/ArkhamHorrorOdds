@@ -13,14 +13,18 @@ namespace ArkhamHorrorOdds
         static string result = "";
         public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
         {
-            if (difficulty == 1)
+            if(difficulty == 1)
                 difficulty--;
             totalTokens = bag.Sum(x => x.Value);
             winLoss = OddsBag.Numbers(bag, skill + bonus, test, star);
             winLoss[1] += bag[15];
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
-            if (scenario == 0)
+            if(scenario == 0)
                 Beyond(bag, difficulty, skill, bonus, test, extra, extra2);
+            else if(scenario == 1)
+                Nightmare(bag, difficulty, skill, bonus, test, extra, extra2);
+            else if(scenario == 2)
+                Kadath(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -35,6 +39,38 @@ namespace ArkhamHorrorOdds
             else
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
             result = WinChecker.ResultString(winLoss, totalTokens);
+            return;
+        }
+        private static void Nightmare(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        {
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, -extra);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 0);
+            if(difficulty == 0)
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra2);
+            else
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra2 + 1);
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if(bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Kadath(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if(difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, -2);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, -1);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
             return;
         }
     }
