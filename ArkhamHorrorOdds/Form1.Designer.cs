@@ -86,7 +86,8 @@ namespace ArkhamHorrorOdds
             "The Dunwich Legacy",
             "The Path to Carcosa",
             "The Forgotten Age",
-            "The Circle Undone"});
+            "The Circle Undone",
+            "The Dream-Eaters"});
             this.CbCampaign.Location = new System.Drawing.Point(25, 75);
             this.CbCampaign.Name = "CbCampaign";
             this.CbCampaign.Size = new System.Drawing.Size(176, 24);

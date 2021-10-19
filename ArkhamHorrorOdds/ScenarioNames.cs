@@ -8,29 +8,24 @@ namespace ArkhamHorrorOdds
 {
     public static class ScenarioNames
     {
-        static readonly string[] notz = { "The Gathering", "The Midnight Masks", "The Devourer Below" };
-        static readonly string[] tdl = { "Extracurricular Activity", "The House Always Wins", "The Miskatonic Museum", "The Essex County Express",
-        "Blood on the Altar", "Undimensioned and Unseen", "Where Doom Awaits", "Lost in Time and Space" };
-        static readonly string[] ptc = { "Curtain Call", "The Last King", "Echoes of the Past", "The Unspeakable Oath", "A Phantom of Truth",
-        "The Pallid Mask", "Black Stars Rise", "Dim Carcosa"};
-        static readonly string[] tfa = { "The Untamed Wilds", "The Doom of Eztli", "Threads of Fate", "The Boundary Beyond", "Heart of the Elders",
-        "The City of Archives", "The Depths of Yoth", "Shattered Aeons" };
-        static readonly string[] cu = { "Disappearance at the Twilight Estate", "The Witching Hour", "At Death’s Doorstep", "The Secret Name",
-        "The Wages of Sin", "For the Greater Good", "Union and Disillusion", "In the Clutches of Chaos", "Before the Black Throne"};
         public static string[] GetList(int campaign)
         {
             switch (campaign)
             {
                 case 0:
-                    return notz;
+                    return new string[] { "The Gathering", "The Midnight Masks", "The Devourer Below" };
                 case 1:
-                    return tdl;
+                    return new string[] { "Extracurricular Activity", "The House Always Wins", "The Miskatonic Museum", "The Essex County Express",
+                        "Blood on the Altar", "Undimensioned and Unseen", "Where Doom Awaits", "Lost in Time and Space" };
                 case 2:
-                    return ptc;
+                    return new string[] { "Curtain Call", "The Last King", "Echoes of the Past", "The Unspeakable Oath", "A Phantom of Truth",
+                        "The Pallid Mask", "Black Stars Rise", "Dim Carcosa"};
                 case 3:
-                    return tfa;
+                    return new string[] { "The Untamed Wilds", "The Doom of Eztli", "Threads of Fate", "The Boundary Beyond", "Heart of the Elders",
+                        "The City of Archives", "The Depths of Yoth", "Shattered Aeons" };
                 case 4:
-                    return cu;
+                    return new string[] { "Disappearance at the Twilight Estate", "The Witching Hour", "At Death’s Doorstep", "The Secret Name",
+                        "The Wages of Sin", "For the Greater Good", "Union and Disillusion", "In the Clutches of Chaos", "Before the Black Throne"};
                 default:
                     return new string[]{ };
             }
