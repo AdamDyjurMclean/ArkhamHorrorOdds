@@ -25,6 +25,8 @@ namespace ArkhamHorrorOdds
                 Elina(bag, difficulty, skill, bonus, test, extra);
             else if(scenario == 2)
                 Deep(bag, difficulty, skill, bonus, test, extra, extra2);
+            else if (scenario == 3)
+                Devil(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -82,6 +84,23 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 5);
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra2 * 2);
+            }
+        }
+        private static void Devil(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if (difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 5);
             }
         }
     }
