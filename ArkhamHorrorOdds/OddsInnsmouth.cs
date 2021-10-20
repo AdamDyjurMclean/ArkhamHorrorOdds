@@ -11,7 +11,7 @@ namespace ArkhamHorrorOdds
         static double totalTokens = 0;
         static double[] winLoss;
         static string result = "";
-        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2)
+        public static string ScenarioCheck(Dictionary<int, int> bag, int scenario, int difficulty, int skill, int bonus, int star, int test, int extra, int extra2, int extra3)
         {
             if(difficulty == 1)
                 difficulty--;
@@ -20,9 +20,11 @@ namespace ArkhamHorrorOdds
             winLoss[1] += bag[15];
             string blessCurse = WinChecker.BlessCurseString(bag, totalTokens);
             if(scenario == 0)
-                Pit(bag, difficulty, skill, bonus, test, extra2);
+                Pit(bag, difficulty, skill, bonus, test, extra3);
             else if(scenario == 1)
                 Elina(bag, difficulty, skill, bonus, test, extra);
+            else if(scenario == 2)
+                Deep(bag, difficulty, skill, bonus, test, extra, extra2);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -64,6 +66,23 @@ namespace ArkhamHorrorOdds
                 winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra + 1);
             result = WinChecker.ResultString(winLoss, totalTokens);
             return;
+        }
+        private static void Deep(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra, int extra2)
+        {
+            if(difficulty == 0)
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra2);
+            }
+            else
+            {
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra * 2);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 5);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, extra2 * 2);
+            }
         }
     }
 }

@@ -92,7 +92,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 7, 0 },
                     new int[] { 5, 7, 2 },
                     new int[] { 6, 1, 0 },
-                    new int[] { 6, 1, 2 }
+                    new int[] { 6, 1, 2 },
+                    new int[] { 6, 2, 0 },
+                    new int[] { 6, 2, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -166,6 +168,8 @@ namespace ArkhamHorrorOdds
                 return "Card Damage";
             else if (Enumerable.SequenceEqual(array, new int[] { 5, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 6, 2 }))
                 return "Act #";
+            else if (Enumerable.SequenceEqual(array, new int[] { 6, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 2, 2 }))
+                return "East #";
             return "";
         }
         public static bool Check2(int campaign, int scenerio, int difficulty)
@@ -190,7 +194,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 5, 0, 2 },
                     new int[] { 5, 1, 0 },
                     new int[] { 5, 1, 2 },
-                    new int[] { 5, 6, 2 }
+                    new int[] { 5, 6, 2 },
+                    new int[] { 6, 2, 0 },
+                    new int[] { 6, 2, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
@@ -219,6 +225,8 @@ namespace ArkhamHorrorOdds
                 return "Revealed #";
             else if (Enumerable.SequenceEqual(array, new int[] { 5, 1, 0 }) || Enumerable.SequenceEqual(array, new int[] { 5, 1, 2 }))
                 return "Infested #";
+            else if (Enumerable.SequenceEqual(array, new int[] { 6, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 2, 2 }))
+                return "Barriers  #";
             return "";
         }
         public static bool Check3(int campaign, int scenerio, int difficulty)
