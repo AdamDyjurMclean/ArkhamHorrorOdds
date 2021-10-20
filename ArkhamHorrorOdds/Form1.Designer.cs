@@ -87,10 +87,11 @@ namespace ArkhamHorrorOdds
             "The Path to Carcosa",
             "The Forgotten Age",
             "The Circle Undone",
-            "The Dream-Eaters"});
+            "The Dream-Eaters",
+            "The Innsmouth Conspiracy"});
             this.CbCampaign.Location = new System.Drawing.Point(25, 75);
             this.CbCampaign.Name = "CbCampaign";
-            this.CbCampaign.Size = new System.Drawing.Size(176, 24);
+            this.CbCampaign.Size = new System.Drawing.Size(210, 24);
             this.CbCampaign.TabIndex = 1;
             this.CbCampaign.TabStop = false;
             this.CbCampaign.SelectedIndexChanged += new System.EventHandler(this.CbCampaign_SelectedIndexChanged);
@@ -105,7 +106,7 @@ namespace ArkhamHorrorOdds
             "The Devourer Below"});
             this.CbScenario.Location = new System.Drawing.Point(25, 120);
             this.CbScenario.Name = "CbScenario";
-            this.CbScenario.Size = new System.Drawing.Size(210, 24);
+            this.CbScenario.Size = new System.Drawing.Size(276, 24);
             this.CbScenario.TabIndex = 2;
             this.CbScenario.TabStop = false;
             this.CbScenario.SelectedIndexChanged += new System.EventHandler(this.CbScenario_SelectedIndexChanged);

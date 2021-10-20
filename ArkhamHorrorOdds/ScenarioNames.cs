@@ -29,6 +29,9 @@ namespace ArkhamHorrorOdds
                 case 5:
                     return new string[] { "Beyond the Gates of Sleep", "Waking Nightmare", "The Search for Kadath", "A Thousand Shapes of Horror",
                         "Dark Side of the Moon", "Point of No Return", "Where the Gods Dwell", "Weaver of the Cosmos"};
+                case 6:
+                    return new string[] { "The Pit of Despair", "The Vanishing of Elina Harper", "In Too Deep", "Devil Reef",
+                        "Horror in High Gear", "A Light in the Fog", "The Lair of Dagon", "Into the Maelstrom"};
                 default:
                     return new string[]{ };
             }
