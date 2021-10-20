@@ -142,6 +142,8 @@ namespace ArkhamHorrorOdds
                     lblresult.Text = OddsCircle.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value));
                 else if (CbCampaign.SelectedIndex == 5)
                     lblresult.Text = OddsDream.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(numExtra1.Value), Convert.ToInt32(numExtra2.Value));
+                else if (CbCampaign.SelectedIndex == 6)
+                    lblresult.Text = OddsInnsmouth.ScenarioCheck(bag, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex, Convert.ToInt32(numBase.Value), Convert.ToInt32(numBonus.Value), Convert.ToInt32(numStar.Value), Convert.ToInt32(numTest.Value), Convert.ToInt32(cbFlood.SelectedIndex));
                 else
                     lblresult.Text = "Unfinished";
             }
@@ -263,13 +265,23 @@ namespace ArkhamHorrorOdds
             {
                 lblPoison.Visible = true;
                 cbPoison.Visible = true;
-                if (cbPoison.SelectedIndex == -1)
-                    cbPoison.SelectedIndex = 0;
+                cbPoison.SelectedIndex = 0;
             }
             else
             {
                 lblPoison.Visible = false;
                 cbPoison.Visible = false;
+            }
+            if (VarriableCheck.CheckFlood(CbCampaign.SelectedIndex, CbScenario.SelectedIndex, CbDifficulty.SelectedIndex))
+            {
+                lblFlood.Visible = true;
+                cbFlood.Visible = true;
+                cbFlood.SelectedIndex = 0;
+            }
+            else
+            {
+                lblFlood.Visible = false;
+                cbFlood.Visible = false;
             }
         }
     }

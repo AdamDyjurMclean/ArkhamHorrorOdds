@@ -57,6 +57,8 @@ namespace ArkhamHorrorOdds
             this.numExtra3 = new System.Windows.Forms.NumericUpDown();
             this.lblPoison = new System.Windows.Forms.Label();
             this.cbPoison = new System.Windows.Forms.ComboBox();
+            this.cbFlood = new System.Windows.Forms.ComboBox();
+            this.lblFlood = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numBase)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numBonus)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStar)).BeginInit();
@@ -406,11 +408,40 @@ namespace ArkhamHorrorOdds
             this.cbPoison.TabStop = false;
             this.cbPoison.Visible = false;
             // 
+            // cbFlood
+            // 
+            this.cbFlood.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbFlood.FormattingEnabled = true;
+            this.cbFlood.Items.AddRange(new object[] {
+            "Unflooded",
+            "Partially flooded",
+            "Fully flooded"});
+            this.cbFlood.Location = new System.Drawing.Point(995, 482);
+            this.cbFlood.Name = "cbFlood";
+            this.cbFlood.Size = new System.Drawing.Size(132, 24);
+            this.cbFlood.TabIndex = 29;
+            this.cbFlood.TabStop = false;
+            this.cbFlood.Visible = false;
+            // 
+            // lblFlood
+            // 
+            this.lblFlood.AutoSize = true;
+            this.lblFlood.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFlood.Location = new System.Drawing.Point(870, 483);
+            this.lblFlood.Name = "lblFlood";
+            this.lblFlood.Size = new System.Drawing.Size(109, 24);
+            this.lblFlood.TabIndex = 30;
+            this.lblFlood.Text = "Flood Level";
+            this.lblFlood.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.lblFlood.Visible = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1182, 703);
+            this.Controls.Add(this.lblFlood);
+            this.Controls.Add(this.cbFlood);
             this.Controls.Add(this.cbPoison);
             this.Controls.Add(this.lblPoison);
             this.Controls.Add(this.lblExtra3);
@@ -485,6 +516,8 @@ namespace ArkhamHorrorOdds
         private System.Windows.Forms.NumericUpDown numExtra3;
         private System.Windows.Forms.Label lblPoison;
         private System.Windows.Forms.ComboBox cbPoison;
+        private System.Windows.Forms.ComboBox cbFlood;
+        private System.Windows.Forms.Label lblFlood;
     }
 }
 

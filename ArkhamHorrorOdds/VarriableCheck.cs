@@ -259,5 +259,18 @@ namespace ArkhamHorrorOdds
                 return true;
             return false;
         }
+        public static bool CheckFlood(int campaign, int scenerio, int difficulty)
+        {
+            if (difficulty == 1 || difficulty == 3)
+                difficulty--;
+            int[][] jaggedArray =
+                {
+                    new int[] { 6, 0, 0 },
+                    new int[] { 6, 0, 2 }
+                };
+            if (jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
+                return true;
+            return false;
+        }
     }
 }

@@ -52,6 +52,7 @@
     <Compile Include="OddsForgotten.cs" />
     <Compile Include="OddsBag.cs" />
     <Compile Include="OddsDunwich.cs" />
+    <Compile Include="OddsInnsmouth.cs" />
     <Compile Include="OddsNotZ.cs" />
     <Compile Include="OddsCircle.cs" />
     <Compile Include="ScenarioNames.cs" />
