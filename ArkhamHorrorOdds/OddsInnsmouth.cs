@@ -33,6 +33,8 @@ namespace ArkhamHorrorOdds
                 Light(bag, difficulty, skill, bonus, test, extra3);
             else if (scenario == 6)
                 Dagon(bag, difficulty, skill, bonus, test, extra);
+            else if (scenario == 7)
+                Maelstrom(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -165,6 +167,31 @@ namespace ArkhamHorrorOdds
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (bag[12] > 0)
                 result += WinChecker.CultestRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Maelstrom(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            if(difficulty == 0)
+            {
+                if(extra < 4)
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 1);
+                else
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 3);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 5);
+            }
+            else
+            {
+                if (extra < 4)
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 2);
+                else
+                    winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 12, skill + bonus, test, 4);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 5);
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 6);
+            }
+            result = WinChecker.ResultString(winLoss, totalTokens);
             return;
         }
     }
