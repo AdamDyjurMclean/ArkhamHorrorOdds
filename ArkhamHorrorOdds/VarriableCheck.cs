@@ -285,7 +285,9 @@ namespace ArkhamHorrorOdds
             int[][] jaggedArray =
                 {
                     new int[] { 6, 0, 0 },
-                    new int[] { 6, 0, 2 }
+                    new int[] { 6, 0, 2 },
+                    new int[] { 6, 5, 0 },
+                    new int[] { 6, 5, 2 }
                 };
             if (jaggedArray.Any(x => x.SequenceEqual(new int[] { campaign, scenerio, difficulty })))
                 return true;
