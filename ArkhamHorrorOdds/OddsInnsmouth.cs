@@ -31,6 +31,8 @@ namespace ArkhamHorrorOdds
                 Gear(bag, difficulty, skill, bonus, test, extra);
             else if(scenario == 5)
                 Light(bag, difficulty, skill, bonus, test, extra3);
+            else if (scenario == 6)
+                Dagon(bag, difficulty, skill, bonus, test, extra);
             if (blessCurse != "")
                 result += $"\n {blessCurse}";
             return result;
@@ -150,6 +152,19 @@ namespace ArkhamHorrorOdds
             result = WinChecker.ResultString(winLoss, totalTokens);
             if (extra != 0 && bag[11] > 0)
                 result += WinChecker.SkullRedraw(bag, totalTokens);
+            return;
+        }
+        private static void Dagon(Dictionary<int, int> bag, int difficulty, int skill, int bonus, int test, int extra)
+        {
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 13, skill + bonus, test, 3);
+            winLoss = WinChecker.StandardCheck(winLoss, bag, 14, skill + bonus, test, 4);
+            if(difficulty == 0)
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra);
+            else
+                winLoss = WinChecker.StandardCheck(winLoss, bag, 11, skill + bonus, test, extra * 2);
+            result = WinChecker.ResultString(winLoss, totalTokens);
+            if (bag[12] > 0)
+                result += WinChecker.CultestRedraw(bag, totalTokens);
             return;
         }
     }

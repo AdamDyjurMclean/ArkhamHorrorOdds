@@ -98,7 +98,9 @@ namespace ArkhamHorrorOdds
                     new int[] { 6, 3, 0 },
                     new int[] { 6, 3, 2 },
                     new int[] { 6, 4, 0 },
-                    new int[] { 6, 4, 2 }
+                    new int[] { 6, 4, 2 },
+                    new int[] { 6, 6, 0 },
+                    new int[] { 6, 6, 2 }
                 };
             if(jaggedArray.Any(x => x.SequenceEqual(new int[] {campaign, scenerio, difficulty })))
                 return true;
@@ -174,7 +176,8 @@ namespace ArkhamHorrorOdds
                 return "Act #";
             else if (Enumerable.SequenceEqual(array, new int[] { 6, 2, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 2, 2 }))
                 return "East #";
-            else if (Enumerable.SequenceEqual(array, new int[] { 6, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 3, 2 }))
+            else if (Enumerable.SequenceEqual(array, new int[] { 6, 3, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 3, 2 })
+                    || Enumerable.SequenceEqual(array, new int[] { 6, 6, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 6, 2 }))
                 return "# of keys";
             else if (Enumerable.SequenceEqual(array, new int[] { 6, 4, 0 }) || Enumerable.SequenceEqual(array, new int[] { 6, 4, 2 }))
                 return "Roads left:";
