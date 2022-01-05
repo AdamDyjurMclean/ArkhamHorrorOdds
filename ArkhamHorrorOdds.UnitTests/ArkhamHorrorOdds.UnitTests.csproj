@@ -51,6 +51,7 @@
   <ItemGroup>
     <Compile Include="OddsNotZTests.cs" />
     <Compile Include="OddsDunwichTests.cs" />
+    <Compile Include="OddsCarcosaTests.cs" />
     <Compile Include="VarriableCheckTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
