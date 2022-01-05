@@ -53,6 +53,7 @@
     <Compile Include="OddsDunwichTests.cs" />
     <Compile Include="OddsCarcosaTests.cs" />
     <Compile Include="OddsForgottenTests.cs" />
+    <Compile Include="OddsCircleTests.cs" />
     <Compile Include="VarriableCheckTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
