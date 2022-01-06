@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ArkhamHorrorOdds
 {
-    class OddsDream
+    public static class OddsDream
     {
         static double totalTokens = 0;
         static double[] winLoss;
