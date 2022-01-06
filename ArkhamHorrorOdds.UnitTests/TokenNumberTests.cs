@@ -19,6 +19,12 @@ namespace ArkhamHorrorOdds.UnitTests
             Assert.AreEqual(-5, result);
         }
         [TestMethod]
+        public void Six_IsCorrect()
+        {
+            int result = TokenNumber.Convert(7);
+            Assert.AreEqual(-6, result);
+        }
+        [TestMethod]
         public void Eight_IsCorrect()
         {
             int result = TokenNumber.Convert(9);
